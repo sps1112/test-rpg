@@ -1,15 +1,21 @@
-Stats
+## Stats
 
-Name
-Level
+### Title
 
-Health
-Mana
-Attack
-Defence
-Special Attack
-Special Defence
-Speed
+- Name
+- Level
 
-Current Exp.
-Exp. to Next Level
+### Stats Data
+
+- Health
+- Mana
+- Attack
+- Defence
+- Special Attack
+- Special Defence
+- Speed
+
+### Other Data
+
+- Current Exp.
+- Exp. to Next Level

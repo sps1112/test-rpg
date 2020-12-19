@@ -49,4 +49,8 @@ void Print(const float num, int isChar = 0)
     }
 }
 
+void ClearInput()
+{
+}
+
 #endif

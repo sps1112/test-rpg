@@ -15,6 +15,7 @@ int main()
     rpgPrinter::PrintEnd();
     int choice;
     std::cin >> choice;
+    ClearInput();
     return 0;
 }
 
@@ -27,6 +28,7 @@ void RunMainMenu()
     while (!hasChosen)
     {
         std::cin >> choice;
+        ClearInput();
         switch (choice)
         {
         case 1:
@@ -71,6 +73,7 @@ void RunGame()
         while (playChoice != 0 && playChoice != 1)
         {
             std::cin >> playChoice;
+            ClearInput();
             switch (playChoice)
             {
             case 0:
@@ -102,6 +105,7 @@ void RunOptions()
         while (optionChoice != 0 && optionChoice != 1)
         {
             std::cin >> optionChoice;
+            ClearInput();
             switch (optionChoice)
             {
             case 0:

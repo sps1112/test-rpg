@@ -1,15 +1,62 @@
 ## Possilble Features
 
 - Inventory
+  - Like Earthbound
+  - Limited Size (about 15)
+  - Stored via Linked List
 - Stats
+  - Player and Enemy Stats
+  - Leveling System
+  - View Stats in settings
 - Shops
+  - Uses standard cash
+  - Dropped by enemies or found in chests
+  - Shop run by NPC
+  - Item Shop
+  - Equpiment Shop
 - Equipment
+  - DS Like Equipment system
+  - Increases stats
+  - Can be dropped by enemies
+  - Also part of inventory when not in use
 - Battle
+  - Random Encounters
+  - Dragon quest like battle system
+  - Stats would be om the screen
 - ASCII art
+  - ASCII art to show some graphics
 - Party System
+  - Currently is 1V1
+  - Would contain functionality for multi-member party battles
 - Movement
+  - NWES system
+  - input by text
+  - Shows distance over time
+  - Case Sensitive
 - Saving Game
+  - Save to file
+  - Save equipment, location, cash, inventory,etc.
 - Text Commands
+  - Commands for :-
+    - Move
+    - Attack
+    - Defend
+    - Use magic
+    - Make choices
+    - Open Menus
+    - Use Items
+  - Also use by choice
+  - Shows if command is valid or not
 - Options
+  - Change Features
+  - View Stats
+  - Change Equipment
+  - Use, Sort, Discard Items
 - Settings
+  - Text Settings
+  - Game Settings
 - Dungeons
+  - Minion Enemies
+  - Sub Boss
+  - Main Boss
+  - Main Treasure

@@ -1,4 +1,4 @@
-## Main Menu
+### Main Menu
 
 - Continue
 - New Game
@@ -6,7 +6,7 @@
 - Settings
 - Quit
 
-## Game
+### Game
 
 - Free Roam
 - Pause

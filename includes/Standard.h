@@ -2,10 +2,14 @@
 #define STANDARD_H
 
 #include <iostream>
+//for clear input
+#include <ios>
+#include <limits>
 
+// Prints message on a single line and then moves to next line
 void Log(const char *message)
 {
-    std::cout << message << std::endl;
+    std::cout << message << '\n'; // Prefer using '\n' instead of std::endl
 }
 
 void Log(std::string message)
@@ -26,6 +30,7 @@ void Log(const float num, int isChar = 0)
     }
 }
 
+// Prints message on a single line without moving over
 void Print(const char *message)
 {
     std::cout << message;
@@ -49,8 +54,11 @@ void Print(const float num, int isChar = 0)
     }
 }
 
+// Clears the input buffer to take a single value each time
 void ClearInput()
 {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 #endif

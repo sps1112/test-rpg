@@ -1,3 +1,3 @@
-## /includes
+## **/includes**
 
-This folder contains all the header files and other programs
+This folder contains all the header files and other programs.

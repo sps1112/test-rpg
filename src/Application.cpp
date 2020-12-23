@@ -1,13 +1,16 @@
+// Include the header files
 #include <iostream>
 
 #include "../includes/Standard.h"
 #include "../includes/Printer.h"
 
+// Function Declaration
 void RunMainMenu();
 void RunGame();
 void RunOptions();
 void RunBattle();
 
+// Main Function
 int main()
 {
     rpgPrinter::PrintTitle();
@@ -19,11 +22,12 @@ int main()
     return 0;
 }
 
+// Main Menu Function
 void RunMainMenu()
 {
     bool hasSavedGame = false;
     bool hasChosen = false;
-    int choice;
+    int choice{0};
     rpgPrinter::PrintMenu(hasSavedGame);
     while (!hasChosen)
     {
@@ -60,6 +64,7 @@ void RunMainMenu()
     }
 }
 
+// Game Loop Function
 void RunGame()
 {
     bool isPlaying = true;
@@ -92,6 +97,7 @@ void RunGame()
     RunMainMenu();
 }
 
+// Options Menu Function
 void RunOptions()
 {
     bool isOnOptions = true;
@@ -123,6 +129,7 @@ void RunOptions()
     RunMainMenu();
 }
 
+// Battle Sequence Function
 void RunBattle()
 {
     // Battle code

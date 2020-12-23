@@ -1,3 +1,3 @@
-## /src
+## **/src**
 
-This folder contains the source files for the game.
+This folder contains the source files needed for the game.

@@ -1,11 +1,13 @@
-## Stats
+## **Stats**
 
-### Title
+This contains stats which define features of a character.
+
+### _Title_
 
 - Name
 - Level
 
-### Stats Data
+### _Stats Data_
 
 - Health
 - Mana
@@ -15,12 +17,12 @@
 - Special Defence
 - Speed
 
-### Other Data
+### _Other Data_
 
 - Current Exp.
 - Exp. to Next Level
 
-### Enemy Stats
+### _Enemy Stats_
 
 - Name
 - Level

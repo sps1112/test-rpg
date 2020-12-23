@@ -5,13 +5,16 @@
 #include "Standard.h"
 #include "ASCArt.h"
 
+// Namespace for Printer Header
 namespace rpgPrinter
 {
+    // Prints consecutive n '-'
     void PrintDash(int n)
     {
         Log(ascart::GetDashes(n));
     }
 
+    // Prints an alphabet and its certain line
     void PrintLetter(const char c, int line = 0)
     {
         std::string part;
@@ -128,6 +131,7 @@ namespace rpgPrinter
         std::cout << part;
     }
 
+    // Prints a given word
     void PrintWord(const char *word)
     {
         int i = 0;
@@ -159,6 +163,7 @@ namespace rpgPrinter
         }
     }
 
+    // Prints the Game title
     void PrintTitle()
     {
         PrintDash(15);
@@ -167,6 +172,7 @@ namespace rpgPrinter
         Log("");
     }
 
+    // Prints the Game Ending
     void PrintEnd()
     {
         Log("");
@@ -177,6 +183,7 @@ namespace rpgPrinter
         std::cout << "Enter Any Number to Quit: ";
     }
 
+    // Prints the main menu
     void PrintMenu(bool hasSaveGame)
     {
         Log("");

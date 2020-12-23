@@ -1,3 +1,3 @@
-## /lib
+## **/lib**
 
-This folder contains all the libraries
+This folder contains all the libraries.

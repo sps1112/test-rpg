@@ -5,6 +5,7 @@
 # Add files with any extension,
 !*/*.*
 !data/*
+data/*.saved.*
 # Remove .out files
 */*.out
 # Remove .vscode folder

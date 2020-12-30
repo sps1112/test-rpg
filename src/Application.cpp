@@ -3,22 +3,23 @@
 
 #include "../includes/Standard.h"
 #include "../includes/Printer.h"
+#include "../includes/Character.h"
+#include "../includes/Battle.h"
 
 // Function Declaration
 void RunMainMenu();
 void RunGame();
 void RunOptions();
-void RunBattle();
 
 // Main Function
 int main()
 {
-    rpgPrinter::PrintTitle();
+    rpgText::PrintTitle();
     RunMainMenu();
-    rpgPrinter::PrintEnd();
+    rpgText::PrintEnd();
     int choice;
     std::cin >> choice;
-    ClearInput();
+    rpgText::ClearInput();
     return 0;
 }
 
@@ -28,11 +29,11 @@ void RunMainMenu()
     bool hasSavedGame = false;
     bool hasChosen = false;
     int choice{0};
-    rpgPrinter::PrintMenu(hasSavedGame);
+    rpgText::PrintMenu(hasSavedGame);
     while (!hasChosen)
     {
         std::cin >> choice;
-        ClearInput();
+        rpgText::ClearInput();
         switch (choice)
         {
         case 1:
@@ -46,11 +47,11 @@ void RunMainMenu()
             break;
         default:
             hasChosen = false;
-            Print("Select Again: ");
+            rpgText::Print("Select Again: ");
             break;
         }
     }
-    Log("");
+    rpgText::Log("");
     switch (choice)
     {
     case 1:
@@ -69,16 +70,26 @@ void RunGame()
 {
     bool isPlaying = true;
     int playChoice;
+    rpgText::Log("Game Started");
+    rpgText::Player player("../data/Player.char");
+    player.PrintStats();
     while (isPlaying)
     {
-        Log("Game is Running");
-        Log("");
-        Log("Enter 1 to continue or 0 to go back");
+        if (rpgText::CheckBattle(30))
+        {
+            rpgText::Log("You encountered an enemy");
+            rpgText::StartBattle(player);
+        }
+        else
+        {
+            rpgText::Log("You are moving");
+        }
+        rpgText::Print("Enter 1 to continue or 0 to go back: ");
         playChoice = 2;
         while (playChoice != 0 && playChoice != 1)
         {
             std::cin >> playChoice;
-            ClearInput();
+            rpgText::ClearInput();
             switch (playChoice)
             {
             case 0:
@@ -88,12 +99,12 @@ void RunGame()
                 isPlaying = true;
                 break;
             default:
-                Print("Select again (1 to continue or 0 to go back): ");
+                rpgText::Print("Select again (1 to continue or 0 to go back): ");
                 break;
             }
         }
     }
-    Log("");
+    rpgText::Log("");
     RunMainMenu();
 }
 
@@ -104,14 +115,13 @@ void RunOptions()
     int optionChoice;
     while (isOnOptions)
     {
-        Log("Options is Running");
-        Log("");
-        Log("Enter 1 to continue or 0 to go back");
+        rpgText::Log("Options is Running");
+        rpgText::Print("Enter 1 to continue or 0 to go back: ");
         optionChoice = 2;
         while (optionChoice != 0 && optionChoice != 1)
         {
             std::cin >> optionChoice;
-            ClearInput();
+            rpgText::ClearInput();
             switch (optionChoice)
             {
             case 0:
@@ -121,16 +131,10 @@ void RunOptions()
                 isOnOptions = true;
                 break;
             default:
-                Print("Select again (1 to continue or 0 to go back): ");
+                rpgText::Print("Select again (1 to continue or 0 to go back): ");
                 break;
             }
         }
     }
     RunMainMenu();
-}
-
-// Battle Sequence Function
-void RunBattle()
-{
-    // Battle code
 }

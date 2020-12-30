@@ -1,6 +1,11 @@
-# Remove every file, Add License, Add files with . extension, Remove .out files, Remove .vscode folder
+# Remove every file in every folder
 */*
+# Add License,
 ! LICENSE
+# Add files with any extension,
 !*/*.*
+!data/*
+# Remove .out files
 */*.out
+# Remove .vscode folder
 .vscode/*

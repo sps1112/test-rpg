@@ -6,59 +6,65 @@
 #include <ios>
 #include <limits>
 
-// Prints message on a single line and then moves to next line
-void Log(const char *message)
+namespace rpgText
 {
-    std::cout << message << '\n'; // Prefer using '\n' instead of std::endl
-}
-
-void Log(std::string message)
-{
-    Log(message.c_str());
-}
-
-void Log(const float num, int isChar = 0)
-{
-    if (isChar)
+    // Prints message on a single line without moving over
+    void Print(const char *message)
     {
-        char c = int(num);
-        Log(std::string(1, c));
+        std::cout << message;
     }
-    else
+
+    void Print(std::string message)
     {
-        Log(std::to_string(num));
+        Print(message.c_str());
     }
-}
 
-// Prints message on a single line without moving over
-void Print(const char *message)
-{
-    std::cout << message;
-}
-
-void Print(std::string message)
-{
-    Print(message.c_str());
-}
-
-void Print(const float num, int isChar = 0)
-{
-    if (isChar)
+    void Print(const float num, int isChar = 0)
     {
-        char c = int(num);
-        Print(std::string(1, c));
+        if (isChar)
+        {
+            char c = int(num);
+            Print(std::string(1, c));
+        }
+        else
+        {
+            Print(std::to_string(num));
+        }
     }
-    else
-    {
-        Print(std::to_string(num));
-    }
-}
 
-// Clears the input buffer to take a single value each time
-void ClearInput()
-{
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-}
+    // Prints message on a single line and then moves to next line
+    void Log(const char *message)
+    {
+        Print(message);
+        Print("\n");
+        // std::cout << message << '\n'; // Prefer using '\n' instead of std::endl
+    }
+
+    void Log(std::string message)
+    {
+        Log(message.c_str());
+    }
+
+    void Log(const float num, int isChar = 0)
+    {
+        if (isChar)
+        {
+            char c = int(num);
+            Log(std::string(1, c));
+        }
+        else
+        {
+            Log(std::to_string(num));
+        }
+    }
+
+    // Clears the input buffer to take a single value each time
+    void ClearInput()
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+} // namespace rpgText
 
 #endif

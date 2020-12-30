@@ -6,12 +6,12 @@
 #include "ASCArt.h"
 
 // Namespace for Printer Header
-namespace rpgPrinter
+namespace rpgText
 {
     // Prints consecutive n '-'
     void PrintDash(int n)
     {
-        Log(ascart::GetDashes(n));
+        Log(rpgText::GetDashes(n));
     }
 
     // Prints an alphabet and its certain line
@@ -23,107 +23,107 @@ namespace rpgPrinter
         {
         case 'A':
         case 'a':
-            part = ascart::A[line];
+            part = rpgText::A[line];
             break;
         case 'B':
         case 'b':
-            part = ascart::B[line];
+            part = rpgText::B[line];
             break;
         case 'C':
         case 'c':
-            part = ascart::C[line];
+            part = rpgText::C[line];
             break;
         case 'D':
         case 'd':
-            part = ascart::D[line];
+            part = rpgText::D[line];
             break;
         case 'E':
         case 'e':
-            part = ascart::E[line];
+            part = rpgText::E[line];
             break;
         case 'F':
         case 'f':
-            part = ascart::F[line];
+            part = rpgText::F[line];
             break;
         case 'G':
         case 'g':
-            part = ascart::G[line];
+            part = rpgText::G[line];
             break;
         case 'H':
         case 'h':
-            part = ascart::H[line];
+            part = rpgText::H[line];
             break;
         case 'I':
         case 'i':
-            part = ascart::I[line];
+            part = rpgText::I[line];
             break;
         case 'J':
         case 'j':
-            part = ascart::J[line];
+            part = rpgText::J[line];
             break;
         case 'K':
         case 'k':
-            part = ascart::K[line];
+            part = rpgText::K[line];
             break;
         case 'L':
         case 'l':
-            part = ascart::L[line];
+            part = rpgText::L[line];
             break;
         case 'M':
         case 'm':
-            part = ascart::M[line];
+            part = rpgText::M[line];
             break;
         case 'N':
         case 'n':
-            part = ascart::N[line];
+            part = rpgText::N[line];
             break;
         case 'O':
         case 'o':
-            part = ascart::O[line];
+            part = rpgText::O[line];
             break;
         case 'P':
         case 'p':
-            part = ascart::P[line];
+            part = rpgText::P[line];
             break;
         case 'Q':
         case 'q':
-            part = ascart::Q[line];
+            part = rpgText::Q[line];
             break;
         case 'R':
         case 'r':
-            part = ascart::R[line];
+            part = rpgText::R[line];
             break;
         case 'S':
         case 's':
-            part = ascart::S[line];
+            part = rpgText::S[line];
             break;
         case 'T':
         case 't':
-            part = ascart::T[line];
+            part = rpgText::T[line];
             break;
         case 'U':
         case 'u':
-            part = ascart::U[line];
+            part = rpgText::U[line];
             break;
         case 'V':
         case 'v':
-            part = ascart::V[line];
+            part = rpgText::V[line];
             break;
         case 'W':
         case 'w':
-            part = ascart::W[line];
+            part = rpgText::W[line];
             break;
         case 'X':
         case 'x':
-            part = ascart::X[line];
+            part = rpgText::X[line];
             break;
         case 'Y':
         case 'y':
-            part = ascart::Y[line];
+            part = rpgText::Y[line];
             break;
         case 'Z':
         case 'z':
-            part = ascart::Z[line];
+            part = rpgText::Z[line];
             break;
         default:
             part = std::string(1, c);
@@ -145,7 +145,7 @@ namespace rpgPrinter
         c = word[i];
     }
     */
-        for (int j = 0; j < ascart::wordLength; j++)
+        for (int j = 0; j < rpgText::wordLength; j++)
         {
             i = 0;
             c = word[0];
@@ -207,6 +207,6 @@ namespace rpgPrinter
         Log("");
         std::cout << "Enter any of these numbers: ";
     }
-} // namespace rpgPrinter
+} // namespace rpgText
 
 #endif

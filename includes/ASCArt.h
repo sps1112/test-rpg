@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace ascart
+namespace rpgText
 {
     // Returns a Character string such as "------" with n dashes
     char *GetDashes(int n)
@@ -167,5 +167,5 @@ namespace ascart
                        " *   ",
                        "*****"};
 
-} // namespace ascart
+} // namespace rpgText
 #endif

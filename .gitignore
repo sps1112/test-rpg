@@ -1,6 +1,14 @@
-# Remove every file, Add License, Add files with . extension, Remove .out files, Remove .vscode folder
-*/*
+# Remove every file in every folder
+test-rpg/*/*
+#Remove build folder
+build/*
+# Add License,
 ! LICENSE
-!*/*.*
-*/*.out
+# Add files with any extension,
+!test-rpg/*/*.*
+!test-rpg/data/*
+test-rpg/data/*.saved.*
+# Remove .out files
+test-rpg/*/*.out
+# Remove .vscode folder
 .vscode/*

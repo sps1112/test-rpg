@@ -6,12 +6,12 @@
 #include "ASCArt.h"
 
 // Namespace for Printer Header
-namespace rpgPrinter
+namespace rpgText
 {
     // Prints consecutive n '-'
     void PrintDash(int n)
     {
-        Log(ascart::GetDashes(n));
+        Log(GetDashes(n));
     }
 
     // Prints an alphabet and its certain line
@@ -23,107 +23,107 @@ namespace rpgPrinter
         {
         case 'A':
         case 'a':
-            part = ascart::A[line];
+            part = A[line];
             break;
         case 'B':
         case 'b':
-            part = ascart::B[line];
+            part = B[line];
             break;
         case 'C':
         case 'c':
-            part = ascart::C[line];
+            part = C[line];
             break;
         case 'D':
         case 'd':
-            part = ascart::D[line];
+            part = D[line];
             break;
         case 'E':
         case 'e':
-            part = ascart::E[line];
+            part = E[line];
             break;
         case 'F':
         case 'f':
-            part = ascart::F[line];
+            part = F[line];
             break;
         case 'G':
         case 'g':
-            part = ascart::G[line];
+            part = G[line];
             break;
         case 'H':
         case 'h':
-            part = ascart::H[line];
+            part = H[line];
             break;
         case 'I':
         case 'i':
-            part = ascart::I[line];
+            part = I[line];
             break;
         case 'J':
         case 'j':
-            part = ascart::J[line];
+            part = J[line];
             break;
         case 'K':
         case 'k':
-            part = ascart::K[line];
+            part = K[line];
             break;
         case 'L':
         case 'l':
-            part = ascart::L[line];
+            part = L[line];
             break;
         case 'M':
         case 'm':
-            part = ascart::M[line];
+            part = M[line];
             break;
         case 'N':
         case 'n':
-            part = ascart::N[line];
+            part = N[line];
             break;
         case 'O':
         case 'o':
-            part = ascart::O[line];
+            part = O[line];
             break;
         case 'P':
         case 'p':
-            part = ascart::P[line];
+            part = P[line];
             break;
         case 'Q':
         case 'q':
-            part = ascart::Q[line];
+            part = Q[line];
             break;
         case 'R':
         case 'r':
-            part = ascart::R[line];
+            part = R[line];
             break;
         case 'S':
         case 's':
-            part = ascart::S[line];
+            part = S[line];
             break;
         case 'T':
         case 't':
-            part = ascart::T[line];
+            part = T[line];
             break;
         case 'U':
         case 'u':
-            part = ascart::U[line];
+            part = U[line];
             break;
         case 'V':
         case 'v':
-            part = ascart::V[line];
+            part = V[line];
             break;
         case 'W':
         case 'w':
-            part = ascart::W[line];
+            part = W[line];
             break;
         case 'X':
         case 'x':
-            part = ascart::X[line];
+            part = X[line];
             break;
         case 'Y':
         case 'y':
-            part = ascart::Y[line];
+            part = Y[line];
             break;
         case 'Z':
         case 'z':
-            part = ascart::Z[line];
+            part = Z[line];
             break;
         default:
             part = std::string(1, c);
@@ -145,7 +145,7 @@ namespace rpgPrinter
         c = word[i];
     }
     */
-        for (int j = 0; j < ascart::wordLength; j++)
+        for (int j = 0; j < wordLength; j++)
         {
             i = 0;
             c = word[0];
@@ -207,6 +207,6 @@ namespace rpgPrinter
         Log("");
         std::cout << "Enter any of these numbers: ";
     }
-} // namespace rpgPrinter
+} // namespace rpgText
 
 #endif

@@ -58,6 +58,22 @@ namespace rpgText
         }
     }
 
+    // Gets Input from Keyboard
+    int GetInt()
+    {
+        int n{};
+        std::cin >> n;
+        return n;
+    }
+
+    int GetIntWithPrompt(const char *prompt)
+    {
+        Print(prompt);
+        int n{};
+        std::cin >> n;
+        return n;
+    }
+
     // Clears the input buffer to take a single value each time
     void ClearInput()
     {

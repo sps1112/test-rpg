@@ -32,7 +32,7 @@ void RunMainMenu()
     rpgText::PrintMenu(hasSavedGame);
     while (!hasChosen)
     {
-        std::cin >> choice;
+        choice = rpgText::GetInt();
         rpgText::ClearInput();
         switch (choice)
         {
@@ -88,7 +88,7 @@ void RunGame()
         playChoice = 2;
         while (playChoice != 0 && playChoice != 1)
         {
-            std::cin >> playChoice;
+            playChoice = rpgText::GetInt();
             rpgText::ClearInput();
             switch (playChoice)
             {
@@ -120,7 +120,7 @@ void RunOptions()
         optionChoice = 2;
         while (optionChoice != 0 && optionChoice != 1)
         {
-            std::cin >> optionChoice;
+            optionChoice = rpgText::GetInt();
             rpgText::ClearInput();
             switch (optionChoice)
             {

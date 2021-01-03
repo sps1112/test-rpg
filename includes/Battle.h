@@ -28,8 +28,9 @@ namespace rpgText
         {
             Print("Enemy's health is ");
             Log(enemy.health);
-            Print("Press 1 to attack or any other to wait: ");
-            std::cin >> attackChoice;
+            /* Print("Press 1 to attack or any other to wait: ");
+            std::cin >> attackChoice;*/
+            attackChoice = GetIntWithPrompt("Press 1 to attack or any other to wait: ");
             if (attackChoice == 1)
             {
                 enemy.ChangeHealth(-player.attack);

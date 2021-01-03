@@ -11,7 +11,7 @@ namespace rpgText
     // Prints consecutive n '-'
     void PrintDash(int n)
     {
-        Log(rpgText::GetDashes(n));
+        Log(GetDashes(n));
     }
 
     // Prints an alphabet and its certain line
@@ -23,107 +23,107 @@ namespace rpgText
         {
         case 'A':
         case 'a':
-            part = rpgText::A[line];
+            part = A[line];
             break;
         case 'B':
         case 'b':
-            part = rpgText::B[line];
+            part = B[line];
             break;
         case 'C':
         case 'c':
-            part = rpgText::C[line];
+            part = C[line];
             break;
         case 'D':
         case 'd':
-            part = rpgText::D[line];
+            part = D[line];
             break;
         case 'E':
         case 'e':
-            part = rpgText::E[line];
+            part = E[line];
             break;
         case 'F':
         case 'f':
-            part = rpgText::F[line];
+            part = F[line];
             break;
         case 'G':
         case 'g':
-            part = rpgText::G[line];
+            part = G[line];
             break;
         case 'H':
         case 'h':
-            part = rpgText::H[line];
+            part = H[line];
             break;
         case 'I':
         case 'i':
-            part = rpgText::I[line];
+            part = I[line];
             break;
         case 'J':
         case 'j':
-            part = rpgText::J[line];
+            part = J[line];
             break;
         case 'K':
         case 'k':
-            part = rpgText::K[line];
+            part = K[line];
             break;
         case 'L':
         case 'l':
-            part = rpgText::L[line];
+            part = L[line];
             break;
         case 'M':
         case 'm':
-            part = rpgText::M[line];
+            part = M[line];
             break;
         case 'N':
         case 'n':
-            part = rpgText::N[line];
+            part = N[line];
             break;
         case 'O':
         case 'o':
-            part = rpgText::O[line];
+            part = O[line];
             break;
         case 'P':
         case 'p':
-            part = rpgText::P[line];
+            part = P[line];
             break;
         case 'Q':
         case 'q':
-            part = rpgText::Q[line];
+            part = Q[line];
             break;
         case 'R':
         case 'r':
-            part = rpgText::R[line];
+            part = R[line];
             break;
         case 'S':
         case 's':
-            part = rpgText::S[line];
+            part = S[line];
             break;
         case 'T':
         case 't':
-            part = rpgText::T[line];
+            part = T[line];
             break;
         case 'U':
         case 'u':
-            part = rpgText::U[line];
+            part = U[line];
             break;
         case 'V':
         case 'v':
-            part = rpgText::V[line];
+            part = V[line];
             break;
         case 'W':
         case 'w':
-            part = rpgText::W[line];
+            part = W[line];
             break;
         case 'X':
         case 'x':
-            part = rpgText::X[line];
+            part = X[line];
             break;
         case 'Y':
         case 'y':
-            part = rpgText::Y[line];
+            part = Y[line];
             break;
         case 'Z':
         case 'z':
-            part = rpgText::Z[line];
+            part = Z[line];
             break;
         default:
             part = std::string(1, c);
@@ -145,7 +145,7 @@ namespace rpgText
         c = word[i];
     }
     */
-        for (int j = 0; j < rpgText::wordLength; j++)
+        for (int j = 0; j < wordLength; j++)
         {
             i = 0;
             c = word[0];

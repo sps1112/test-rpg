@@ -27,6 +27,7 @@ This contains list of other RPGs which influence this project and future project
 
 - Diablo
 - Fallout
+- Planescape:Torment
 - Baldurs Gate
 
 ### _3D RPG_

@@ -1,5 +1,7 @@
 # Remove every file in every folder
 test-rpg/*/*
+#Remove build folder
+build/*
 # Add License,
 ! LICENSE
 # Add files with any extension,

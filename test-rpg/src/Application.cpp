@@ -1,6 +1,8 @@
 // Include the header files
 #include <iostream>
 
+// TODO: Add and includes folder to fix relative path
+// TODO: Port to Windows
 #include "../includes/Standard.h"
 #include "../includes/Printer.h"
 #include "../includes/Character.h"

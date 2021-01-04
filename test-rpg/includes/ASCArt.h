@@ -6,166 +6,37 @@
 namespace rpgText
 {
     // Returns a Character string such as "------" with n dashes
-    char *GetDashes(int n)
-    {
-        char *line = new char[n + 1];
-        for (int i = 0; i < n; i++)
-        {
-            *(line + i) = '-';
-        }
-        *(line + n) = '\0';
-        return line;
-    }
+    char *GetDashes(int n);
 
     //  String Array for Letters created with ASCII ART
+    extern int wordLength;
 
-    const int wordLength = 5;
-
-    std::string A[] = {"    *    ",
-                       "   * *   ",
-                       "  * * *  ",
-                       " *     * ",
-                       "*       *"};
-
-    std::string B[] = {"***** ",
-                       "*    *",
-                       "***** ",
-                       "*    *",
-                       "***** "};
-
-    std::string C[] = {" ****",
-                       "*    ",
-                       "*    ",
-                       "*    ",
-                       " ****"};
-
-    std::string D[] = {"****  ",
-                       "*   * ",
-                       "*    *",
-                       "*   * ",
-                       "****  "};
-
-    std::string E[] = {"******",
-                       "*     ",
-                       "******",
-                       "*     ",
-                       "******"};
-
-    std::string F[] = {"******",
-                       "*     ",
-                       "******",
-                       "*     ",
-                       "*     "};
-
-    std::string G[] = {"***** ",
-                       "*     ",
-                       "***** ",
-                       "*    *",
-                       "***** "};
-
-    std::string H[] = {"*    *",
-                       "*    *",
-                       "******",
-                       "*    *",
-                       "*    *"};
-
-    std::string I[] = {"*****",
-                       "  *  ",
-                       "  *  ",
-                       "  *  ",
-                       "*****"};
-
-    std::string J[] = {"*****",
-                       "  *  ",
-                       "  *  ",
-                       "* *  ",
-                       " **  "};
-
-    std::string K[] = {"*  *",
-                       "* * ",
-                       "**  ",
-                       "* * ",
-                       "*  *"};
-
-    std::string L[] = {"*    ",
-                       "*    ",
-                       "*    ",
-                       "*    ",
-                       "*****"};
-
-    std::string M[] = {"**   **",
-                       "* * * *",
-                       "*  *  *",
-                       "*     *",
-                       "*     *"};
-
-    std::string N[] = {"**   *",
-                       "* *  *",
-                       "*  * *",
-                       "*   **",
-                       "*    *"};
-
-    std::string O[] = {" **** ",
-                       "*    *",
-                       "*    *",
-                       "*    *",
-                       " **** "};
-
-    std::string P[] = {"**** ",
-                       "*   *",
-                       "**** ",
-                       "*    ",
-                       "*    "};
-    std::string Q[] = {" ***** ",
-                       "*     *",
-                       "*  *  *",
-                       " ***** ",
-                       "   *** "};
-    std::string R[] = {"**** ",
-                       "*   *",
-                       "**** ",
-                       "**   ",
-                       "* *  "};
-    std::string S[] = {" ****",
-                       "*    ",
-                       " *** ",
-                       "    *",
-                       "**** "};
-    std::string T[] = {"*****",
-                       "  *  ",
-                       "  *  ",
-                       "  *  ",
-                       "  *  "};
-    std::string U[] = {"*    *",
-                       "*    *",
-                       "*    *",
-                       "*    *",
-                       " **** "};
-    std::string V[] = {"*       *",
-                       " *     * ",
-                       "  *   *  ",
-                       "   * *   ",
-                       "    *    "};
-    std::string W[] = {"*           *",
-                       " *         * ",
-                       "  *   *   *  ",
-                       "   * * * *   ",
-                       "    *   *    "};
-    std::string X[] = {"*   *",
-                       " * * ",
-                       "  *  ",
-                       " * * ",
-                       "*   *"};
-    std::string Y[] = {"*   *",
-                       " * * ",
-                       "  *  ",
-                       "  *  ",
-                       "  *  "};
-    std::string Z[] = {"*****",
-                       "   * ",
-                       "  *  ",
-                       " *   ",
-                       "*****"};
+    extern std::string A[5];
+    extern std::string B[5];
+    extern std::string C[5];
+    extern std::string D[5];
+    extern std::string E[5];
+    extern std::string F[5];
+    extern std::string G[5];
+    extern std::string H[5];
+    extern std::string I[5];
+    extern std::string J[5];
+    extern std::string K[5];
+    extern std::string L[5];
+    extern std::string M[5];
+    extern std::string N[5];
+    extern std::string O[5];
+    extern std::string P[5];
+    extern std::string Q[5];
+    extern std::string R[5];
+    extern std::string S[5];
+    extern std::string T[5];
+    extern std::string U[5];
+    extern std::string V[5];
+    extern std::string W[5];
+    extern std::string X[5];
+    extern std::string Y[5];
+    extern std::string Z[5];
 
 } // namespace rpgText
 #endif

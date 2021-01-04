@@ -1,12 +1,16 @@
 // Include the header files
 #include <iostream>
 
-// TODO: Add and includes folder to fix relative path
 // TODO: Port to Windows
-#include "../includes/Standard.h"
+/*#include "../includes/Standard.h"
 #include "../includes/Printer.h"
 #include "../includes/Character.h"
-#include "../includes/Battle.h"
+#include "../includes/Battle.h"*/
+
+#include "Standard.h"
+#include "Printer.h"
+#include "Character.h"
+#include "Battle.h"
 
 // Function Declaration
 void RunMainMenu();
@@ -73,7 +77,7 @@ void RunGame()
     bool isPlaying = true;
     int playChoice;
     rpgText::Log("Game Started");
-    rpgText::Player player("../data/Player.char");
+    rpgText::Player player("../test-rpg/data/Player.char");
     player.PrintStats();
     while (isPlaying)
     {

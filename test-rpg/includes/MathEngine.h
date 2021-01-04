@@ -6,36 +6,14 @@
 
 namespace rpgText
 {
-    float Max(float a, float b)
-    {
-        if (a > b)
-        {
-            return a;
-        }
-        return b;
-    }
+    // Get Maximum of a and b
+    float Max(float a, float b);
 
-    float Min(float a, float b)
-    {
-        if (a < b)
-        {
-            return a;
-        }
-        return b;
-    }
+    // Gets Minimum of a and b
+    float Min(float a, float b);
 
-    float Clamp(float min, float max, float num)
-    {
-        if (num > max)
-        {
-            return max;
-        }
-        if (num < min)
-        {
-            return min;
-        }
-        return num;
-    }
+    // Clamps the value of num between min and max
+    float Clamp(float min, float max, float num);
 } // namespace rpgText
 
 #endif

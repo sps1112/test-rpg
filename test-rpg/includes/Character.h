@@ -245,7 +245,7 @@ namespace rpgText
         void WriteToFile()
         {
             std::ofstream file;
-            file.open("../data/Player.saved.char", std::ios::trunc);
+            file.open("../test-rpg/data/Player.saved.char", std::ios::trunc);
             file << "[Stats]" << std::endl;
             file << "Name:- " << name << std::endl;
             file << "Health:- " << health << std::endl;

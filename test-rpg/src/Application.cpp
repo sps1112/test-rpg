@@ -73,7 +73,7 @@ void RunGame()
     bool isPlaying = true;
     int playChoice;
     rpgText::Log("Game Started");
-    rpgText::Player player("../data/Player.char");
+    rpgText::Player player("../test-rpg/data/Player.char");
     player.PrintStats();
     while (isPlaying)
     {

@@ -208,7 +208,7 @@ namespace rpgText
         std::ofstream file;
         file.open("../test-rpg/data/Player.saved.char", std::ios::trunc);
         file << "[Stats]" << std::endl;
-        file << "Name:- " << name << std::endl;
+        file << "Name:- " << name.c_str() << std::endl;
         file << "Health:- " << health << std::endl;
         file << "Mana:- " << mana << std::endl;
         file << "Attack:- " << attack << std::endl;

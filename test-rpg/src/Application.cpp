@@ -5,6 +5,7 @@
 #include "Printer.h"
 #include "Character.h"
 #include "Battle.h"
+#include "FileSystem.h"
 
 // Function Declaration
 void RunMainMenu();
@@ -71,7 +72,7 @@ void RunGame()
     bool isPlaying = true;
     int playChoice;
     rpgText::Log("Game Started");
-    rpgText::Player player("../test-rpg/data/Player.char");
+    rpgText::Player player(FileSystem::get_path("test-rpg/data/Player.char").c_str());
     player.PrintStats();
     while (isPlaying)
     {

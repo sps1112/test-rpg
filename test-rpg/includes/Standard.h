@@ -2,6 +2,7 @@
 #define STANDARD_H
 
 #include <iostream>
+#include <string>
 //for clear input
 #include <ios>
 #include <limits>

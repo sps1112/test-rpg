@@ -1,4 +1,5 @@
 #include "Printer.h"
+#include "config.h"
 
 namespace rpgText
 {
@@ -153,7 +154,7 @@ namespace rpgText
     void PrintTitle()
     {
         PrintDash(15);
-        PrintWord("RPG");
+        PrintWord(GAME_NAME);
         PrintDash(15);
         Log("");
     }

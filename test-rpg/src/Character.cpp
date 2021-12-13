@@ -2,133 +2,110 @@
 
 namespace rpgText
 {
-    // The Generic Character Class
-    Character::Character()
+    Character::Character(std::string name_, int level, float str, float sta,
+                         float inte, float agi, float luck)
     {
-        // default
-    }
-
-    Character::Character(std::string NAME, float HEALTH, float MANA,
-                         float ATTACK, float DEFENCE,
-                         float SPCATTACK, float SPCDEFENCE,
-                         float SPEED)
-    {
-        name = NAME;
-        health = HEALTH;
-        mana = MANA;
-        attack = ATTACK;
-        defence = DEFENCE;
-        spcAttack = SPCATTACK;
-        spcDefence = SPCDEFENCE;
-        speed = SPEED;
-        maxHealth = health;
-        maxMana = mana;
-    }
-
-    void Character::set_private()
-    {
-        maxHealth = health;
-        maxMana = mana;
+        name = name_;
+        BaseStats bs(str, sta, inte, agi, luck);
+        stats = Stats(bs, level);
+        cStats = stats;
     }
 
     void Character::change_health(float amount)
     {
-        health += amount;
-        health = clamp(health, 0, maxHealth);
+        cStats.health += amount;
+        cStats.health = clamp(cStats.health, 0, stats.health);
     }
 
     void Character::change_mana(float amount)
     {
-        mana += amount;
-        mana = clamp(mana, 0, maxMana);
+        cStats.mana += amount;
+        cStats.mana = clamp(cStats.mana, 0, stats.mana);
     }
 
     bool Character::get_status()
     {
-        return (health > 0);
+        return (cStats.health > 0);
     }
 
     void Character::print_stats()
     {
         print_dash(10);
         log("[STATS]");
+
         print("Name:- ");
         log(name);
+
+        print("Level:- ");
+        log(stats.level);
+
         print("Health:- ");
-        log(health);
+        print(cStats.health);
+        print("/");
+        log(stats.health);
+
         print("Mana:- ");
-        log(mana);
+        print(cStats.mana);
+        print("/");
+        log(stats.mana);
+
         print("Attack:- ");
-        log(attack);
+        log(cStats.attack);
         print("Defence:- ");
-        log(defence);
-        print("Special Attack:- ");
-        log(spcAttack);
-        print("Special Defence:- ");
-        log(spcDefence);
+        log(cStats.defence);
+
+        print("Mana Attack:- ");
+        log(cStats.mAttack);
+        print("Mana Defence:- ");
+        log(cStats.mDefence);
+
         print("Speed:- ");
-        log(speed);
+        log(cStats.speed);
+        print("Accuracy:- ");
+        log(cStats.accuracy);
+        print("Evasion:- ");
+        log(cStats.evasion);
+        print("Crit Chance:- ");
+        log(cStats.crit);
+
         print_dash(10);
     }
 
-    // The Enemy Class : Child of Character Class
-    Enemy::Enemy()
+    Enemy::Enemy(std::string name_, int level, float str, float sta,
+                 float inte, float agi, float luck, float exp, float money)
     {
-        // default
-    }
-    Enemy::Enemy(std::string NAME, float HEALTH, float MANA,
-                 float ATTACK, float DEFENCE,
-                 float SPCATTACK, float SPCDEFENCE,
-                 float SPEED, float EXPDROP, float MONEYDROP)
-    {
-        name = NAME;
-        health = HEALTH;
-        mana = MANA;
-        attack = ATTACK;
-        defence = DEFENCE;
-        spcAttack = SPCATTACK;
-        spcDefence = SPCDEFENCE;
-        speed = SPEED;
-        expDrop = EXPDROP;
-        moneyDrop = MONEYDROP;
-        set_private();
+        name = name_;
+        BaseStats bs(str, sta, inte, agi, luck);
+        stats = Stats(bs, level);
+        cStats = stats;
+        expDrop = exp;
+        moneyDrop = money;
     }
 
-    // The Player Class : Child of Character Class
-    Player::Player()
+    Player::Player(std::string name_, bool viaData, int level, float str, float sta,
+                   float inte, float agi, float luck, float exp, float next)
     {
-        // default
-    }
-
-    Player::Player(std::string NAME, bool viaFile, float HEALTH, float MANA,
-                   float ATTACK, float DEFENCE,
-                   float SPCATTACK, float SPCDEFENCE,
-                   float SPEED, float CURRENTEXP, float NEXTEXP)
-    {
-        name = NAME;
-        health = HEALTH;
-        mana = MANA;
-        attack = ATTACK;
-        defence = DEFENCE;
-        spcAttack = SPCATTACK;
-        spcDefence = SPCDEFENCE;
-        speed = SPEED;
-        currentExp = CURRENTEXP;
-        expToNextlevel = NEXTEXP;
-        set_private();
+        name = name_;
+        BaseStats bs(str, sta, inte, agi, luck);
+        stats = Stats(bs, level);
+        cStats = stats;
+        currentExp = exp;
+        expToNextlevel = next;
         write_to_file();
     }
 
     Player::Player(const char *playerStatsPath)
     {
-        std::string stats;
+        std::string statsStr;
+
         std::ifstream file;
         file.open(playerStatsPath);
         std::stringstream statsStream;
         statsStream << file.rdbuf();
         file.close();
-        stats = statsStream.str();
-        const char *statsCode = stats.c_str();
+
+        statsStr = statsStream.str();
+        const char *statsCode = statsStr.c_str();
 
         // Set Name
         int lineStartIndex = get_index_start(statsCode, 0);
@@ -136,47 +113,46 @@ namespace rpgText
         char *VALUE = get_line(lineI, get_string_end(lineI, ":- "));
         name = arr_to_string(VALUE);
 
-        // Set Health
+        // Set Strength
         lineStartIndex = get_index_start(statsCode, lineStartIndex);
         lineI = get_line(statsCode, lineStartIndex);
         VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        health = arr_to_float(VALUE);
+        float str = arr_to_float(VALUE);
 
-        // Set Mana
+        // Set Stamina
         lineStartIndex = get_index_start(statsCode, lineStartIndex);
         lineI = get_line(statsCode, lineStartIndex);
         VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        mana = arr_to_float(VALUE);
+        float sta = arr_to_float(VALUE);
 
-        // Set Attack
+        // Set Intelligence
         lineStartIndex = get_index_start(statsCode, lineStartIndex);
         lineI = get_line(statsCode, lineStartIndex);
         VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        attack = arr_to_float(VALUE);
+        float inte = arr_to_float(VALUE);
 
-        // Set Defence
+        // Set Agility
         lineStartIndex = get_index_start(statsCode, lineStartIndex);
         lineI = get_line(statsCode, lineStartIndex);
         VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        defence = arr_to_float(VALUE);
+        float agi = arr_to_float(VALUE);
 
-        // Set Special Attack
+        // Set Luck
         lineStartIndex = get_index_start(statsCode, lineStartIndex);
         lineI = get_line(statsCode, lineStartIndex);
         VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        spcAttack = arr_to_float(VALUE);
+        float luck = arr_to_float(VALUE);
 
-        // Set Special Defence
+        // Set Level
         lineStartIndex = get_index_start(statsCode, lineStartIndex);
         lineI = get_line(statsCode, lineStartIndex);
         VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        spcDefence = arr_to_float(VALUE);
+        int level = int(arr_to_float(VALUE));
 
-        // Set Speed
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        speed = arr_to_float(VALUE);
+        // Set Stats
+        BaseStats bs(str, sta, inte, agi, luck);
+        stats = Stats(bs, level);
+        cStats = stats;
 
         // Set Current EXP
         lineStartIndex = get_index_start(statsCode, lineStartIndex);
@@ -190,28 +166,35 @@ namespace rpgText
         VALUE = get_line(lineI, get_string_end(lineI, ":- "));
         expToNextlevel = arr_to_float(VALUE);
 
-        set_private();
         write_to_file();
     }
 
     Player::~Player()
     {
-        // write_to_file();
+        write_to_file();
     }
 
     void Player::write_to_file()
     {
         std::ofstream file;
-        file.open("../test-rpg/data/Player.saved.char", std::ios::trunc);
+        file.open(FileSystem::get_path("test-rpg/data/Player.saved.char").c_str(), std::ios::trunc);
         file << "[Stats]" << std::endl;
         file << "Name:- " << name.c_str() << std::endl;
-        file << "Health:- " << health << std::endl;
-        file << "Mana:- " << mana << std::endl;
-        file << "Attack:- " << attack << std::endl;
-        file << "Defence:- " << defence << std::endl;
-        file << "SpecialAttack:- " << spcAttack << std::endl;
-        file << "SpecialDefence:- " << spcDefence << std::endl;
-        file << "Speed:- " << speed << std::endl;
+        file << "Level:- " << stats.level << std::endl;
+
+        file << "Health:- " << stats.health << std::endl;
+        file << "Mana:- " << stats.mana << std::endl;
+
+        file << "Attack:- " << stats.attack << std::endl;
+        file << "Defence:- " << stats.defence << std::endl;
+        file << "Mana Attack:- " << stats.mAttack << std::endl;
+        file << "Mana Defence:- " << stats.mDefence << std::endl;
+
+        file << "Speed:- " << stats.speed << std::endl;
+        file << "Accuracy:- " << stats.accuracy << std::endl;
+        file << "Evasion:- " << stats.evasion << std::endl;
+        file << "Critical Chance:- " << stats.crit << std::endl;
+
         file << "CurrentExp:- " << currentExp << std::endl;
         file << "Exp to Next Level:- " << expToNextlevel << std::endl;
         file.close();

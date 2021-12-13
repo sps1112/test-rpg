@@ -21,11 +21,11 @@ namespace rpgText
         while (enemy.get_status())
         {
             print("Enemy's health is ");
-            log(enemy.health);
+            log(enemy.cStats.health);
             attackChoice = get_int_prompt("Press 1 to attack or any other to wait: ");
             if (attackChoice == 1)
             {
-                enemy.change_health(-player.attack);
+                enemy.change_health(-player.cStats.attack);
                 log("You attacked");
             }
             else

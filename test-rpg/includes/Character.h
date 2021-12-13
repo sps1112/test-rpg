@@ -1,15 +1,17 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-
+// Custom Headers
 #include "Standard.h"
 #include "Printer.h"
 #include "MathEngine.h"
 #include "FileManager.h"
+
+// Standard Headers
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 namespace rpgText
 {
@@ -22,7 +24,6 @@ namespace rpgText
 
     public:
         std::string name;
-        int level;
         float health;
         float mana;
         float attack;
@@ -35,11 +36,11 @@ namespace rpgText
                   float ATTACK = 10, float DEFENCE = 10,
                   float SPCATTACK = 10, float SPCDEFENCE = 10,
                   float SPEED = 20);
-        void SetPrivate();
-        void ChangeHealth(float amount);
-        void ChangeMana(float amount);
-        bool GetStatus();
-        void PrintStats();
+        void set_private();
+        void change_health(float amount);
+        void change_mana(float amount);
+        bool get_status();
+        void print_stats();
     };
 
     // The Enemy Class : Child of Character Class
@@ -61,6 +62,7 @@ namespace rpgText
     {
     private:
     public:
+        int level;
         float currentExp;
         float expToNextlevel;
         Player();
@@ -70,8 +72,8 @@ namespace rpgText
                float SPEED = 20, float CURRENTEXP = 0, float NEXTEXP = 50);
         Player(const char *playerStatsPath);
         ~Player();
-        void WriteToFile();
+        void write_to_file();
     };
 } // namespace rpgText
 
-#endif
+#endif // !CHARACTER_H

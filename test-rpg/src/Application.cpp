@@ -1,22 +1,23 @@
-// Include the header files
-#include <iostream>
-
+// Custom Headers
 #include "Standard.h"
 #include "Printer.h"
 #include "Character.h"
 #include "Battle.h"
 #include "FileSystem.h"
 
+// Standard Headers
+#include <iostream>
+
 // Function Declaration
-void RunMainMenu();
-void RunGame();
-void RunOptions();
+void run_main_menu();
+void run_game();
+void run_options();
 
 // Main Function
 int main()
 {
     rpgText::print_title();
-    RunMainMenu();
+    run_main_menu();
     rpgText::print_end();
     int choice;
     std::cin >> choice;
@@ -25,7 +26,7 @@ int main()
 }
 
 // Main Menu Function
-void RunMainMenu()
+void run_main_menu()
 {
     bool hasSavedGame = false;
     bool hasChosen = false;
@@ -56,10 +57,10 @@ void RunMainMenu()
     switch (choice)
     {
     case 1:
-        RunGame();
+        run_game();
         break;
     case 2:
-        RunOptions();
+        run_options();
         break;
     case 3:
         break;
@@ -67,19 +68,19 @@ void RunMainMenu()
 }
 
 // Game Loop Function
-void RunGame()
+void run_game()
 {
     bool isPlaying = true;
     int playChoice;
     rpgText::log("Game Started");
     rpgText::Player player(FileSystem::get_path("test-rpg/data/Player.char").c_str());
-    player.PrintStats();
+    player.print_stats();
     while (isPlaying)
     {
-        if (rpgText::CheckBattle(30))
+        if (rpgText::check_for_battle(30))
         {
             rpgText::log("You encountered an enemy");
-            rpgText::StartBattle(player);
+            rpgText::initiate_battle(player);
         }
         else
         {
@@ -106,11 +107,11 @@ void RunGame()
         }
     }
     rpgText::log("");
-    RunMainMenu();
+    run_main_menu();
 }
 
 // Options Menu Function
-void RunOptions()
+void run_options()
 {
     bool isOnOptions = true;
     int optionChoice;
@@ -137,5 +138,5 @@ void RunOptions()
             }
         }
     }
-    RunMainMenu();
+    run_main_menu();
 }

@@ -1,12 +1,12 @@
 #ifndef PRINTER_H
 #define PRINTER_H
 
-// Standard Headers
-#include <iostream>
-
 // Custom Headers
 #include "Standard.h"
 #include "ASCArt.h"
+
+// Standard Headers
+#include <iostream>
 
 // Namespace for Printer Header
 namespace rpgText

@@ -25,34 +25,30 @@ namespace rpgText
         maxMana = mana;
     }
 
-    void Character::SetPrivate()
+    void Character::set_private()
     {
         maxHealth = health;
         maxMana = mana;
     }
 
-    void Character::ChangeHealth(float amount)
+    void Character::change_health(float amount)
     {
         health += amount;
         health = clamp(health, 0, maxHealth);
     }
 
-    void Character::ChangeMana(float amount)
+    void Character::change_mana(float amount)
     {
         mana += amount;
         mana = clamp(mana, 0, maxMana);
     }
 
-    bool Character::GetStatus()
+    bool Character::get_status()
     {
-        if (health > 0)
-        {
-            return 1;
-        }
-        return 0;
+        return (health > 0);
     }
 
-    void Character::PrintStats()
+    void Character::print_stats()
     {
         print_dash(10);
         log("[STATS]");
@@ -95,7 +91,7 @@ namespace rpgText
         speed = SPEED;
         expDrop = EXPDROP;
         moneyDrop = MONEYDROP;
-        SetPrivate();
+        set_private();
     }
 
     // The Player Class : Child of Character Class
@@ -119,8 +115,8 @@ namespace rpgText
         speed = SPEED;
         currentExp = CURRENTEXP;
         expToNextlevel = NEXTEXP;
-        SetPrivate();
-        WriteToFile();
+        set_private();
+        write_to_file();
     }
 
     Player::Player(const char *playerStatsPath)
@@ -194,16 +190,16 @@ namespace rpgText
         VALUE = get_line(lineI, get_string_end(lineI, ":- "));
         expToNextlevel = arr_to_float(VALUE);
 
-        SetPrivate();
-        WriteToFile();
+        set_private();
+        write_to_file();
     }
 
     Player::~Player()
     {
-        // WriteToFile();
+        // write_to_file();
     }
 
-    void Player::WriteToFile()
+    void Player::write_to_file()
     {
         std::ofstream file;
         file.open("../test-rpg/data/Player.saved.char", std::ios::trunc);

@@ -1,19 +1,21 @@
 #ifndef BATTLE_H
 #define BATTLE_H
 
-#include <iostream>
-
+// Custom Headers
 #include "Standard.h"
 #include "Character.h"
+
+// Standard Headers
+#include <iostream>
 
 namespace rpgText
 {
     // Checks if Enemy is encountered based on "chance"
-    bool CheckBattle(int chance);
+    bool check_for_battle(int chance);
 
-    //Initiates battle with enemy
-    void StartBattle(const Player &player);
+    // Initiates battle with enemy
+    void initiate_battle(const Player &player);
 
 } // namespace rpgText
 
-#endif
+#endif // !BATTLE_H

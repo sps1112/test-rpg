@@ -1,12 +1,12 @@
 #ifndef FILEMANAGER_H
 #define FILEMANAGER_H
 
+// Custom Headers
+#include "Standard.h"
+
 // Standard Headers
 #include <iostream>
 #include <sstream>
-
-// Custom Headers
-#include "Standard.h"
 
 namespace rpgText
 {

@@ -7,6 +7,8 @@
 // Standard Headers
 #include <iostream>
 #include <sstream>
+#include <fstream>
+#include <string>
 
 namespace rpgText
 {
@@ -38,6 +40,15 @@ namespace rpgText
 
     // Get ending Index of a char array in another char array
     int get_string_end(char *mainCharArray, const char *targetCharArray);
+
+    // Opens file and gets data as Char Array
+    std::string get_file_data(const char *path);
+
+    // Skips by n lines
+    int skip_lines(const char *dataFile, int n, int startIndex = 0);
+
+    // Gets Data point in the data file from the startIndex using the testChar
+    char *get_data_point(const char *dataFile, const char *testChar, int index = 0);
 
 } // namespace rpgText
 

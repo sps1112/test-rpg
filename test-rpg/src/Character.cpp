@@ -96,58 +96,37 @@ namespace rpgText
 
     Player::Player(const char *playerStatsPath)
     {
-        std::string statsStr;
-
-        std::ifstream file;
-        file.open(playerStatsPath);
-        std::stringstream statsStream;
-        statsStream << file.rdbuf();
-        file.close();
-
-        statsStr = statsStream.str();
+        std::string statsStr = get_file_data(playerStatsPath);
         const char *statsCode = statsStr.c_str();
+        int index = 0;
 
         // Set Name
-        int lineStartIndex = get_index_start(statsCode, 0);
-        char *lineI = get_line(statsCode, lineStartIndex);
-        char *VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        name = arr_to_string(VALUE);
+        index = skip_lines(statsCode, 1, index);
+        name = arr_to_string(get_data_point(statsCode, ":- ", index));
 
         // Set Strength
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        float str = arr_to_float(VALUE);
+        index = skip_lines(statsCode, 1, index);
+        float str = arr_to_float(get_data_point(statsCode, ":- ", index));
 
         // Set Stamina
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        float sta = arr_to_float(VALUE);
+        index = skip_lines(statsCode, 1, index);
+        float sta = arr_to_float(get_data_point(statsCode, ":- ", index));
 
         // Set Intelligence
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        float inte = arr_to_float(VALUE);
+        index = skip_lines(statsCode, 1, index);
+        float inte = arr_to_float(get_data_point(statsCode, ":- ", index));
 
         // Set Agility
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        float agi = arr_to_float(VALUE);
+        index = skip_lines(statsCode, 1, index);
+        float agi = arr_to_float(get_data_point(statsCode, ":- ", index));
 
         // Set Luck
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        float luck = arr_to_float(VALUE);
+        index = skip_lines(statsCode, 1, index);
+        float luck = arr_to_float(get_data_point(statsCode, ":- ", index));
 
         // Set Level
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        int level = int(arr_to_float(VALUE));
+        index = skip_lines(statsCode, 1, index);
+        int level = int(arr_to_float(get_data_point(statsCode, ":- ", index)));
 
         // Set Stats
         BaseStats bs(str, sta, inte, agi, luck);
@@ -155,16 +134,12 @@ namespace rpgText
         cStats = stats;
 
         // Set Current EXP
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        currentExp = arr_to_float(VALUE);
+        index = skip_lines(statsCode, 1, index);
+        currentExp = arr_to_float(get_data_point(statsCode, ":- ", index));
 
         // Set EXP to Next Level
-        lineStartIndex = get_index_start(statsCode, lineStartIndex);
-        lineI = get_line(statsCode, lineStartIndex);
-        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
-        expToNextlevel = arr_to_float(VALUE);
+        index = skip_lines(statsCode, 1, index);
+        expToNextlevel = arr_to_float(get_data_point(statsCode, ":- ", index));
 
         write_to_file();
     }

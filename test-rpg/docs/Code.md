@@ -11,6 +11,6 @@ This contains info about how the code is laid out
   - [X] File Manager
 - [X] ASCArt
   - [X] Printer
-- [ ] Character
+- [X] Character
   - [ ] Battle
 - [ ] Application

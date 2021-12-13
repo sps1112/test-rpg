@@ -179,4 +179,34 @@ namespace rpgText
         return -1;
     }
 
+    // Opens file and gets data as Char Array
+    std::string get_file_data(const char *path)
+    {
+        std::ifstream file;
+        file.open(path);
+        std::stringstream fStream;
+        fStream << file.rdbuf();
+        file.close();
+        return fStream.str();
+    }
+
+    // Skips by n lines
+    int skip_lines(const char *dataFile, int n, int startIndex)
+    {
+        int index = startIndex;
+        for (int i = 0; i < n; i++)
+        {
+            index = get_index_start(dataFile, index);
+        }
+        return index;
+    }
+
+    // Gets Data point in the data file from the startIndex using the testChar
+    char *get_data_point(const char *dataFile, const char *testChar, int index)
+    {
+        char *line = get_line(dataFile, index);
+        char *val = get_line(line, get_string_end(line, testChar));
+        return val;
+    }
+
 } // namespace rpgText

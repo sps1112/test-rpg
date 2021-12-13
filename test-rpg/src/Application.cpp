@@ -15,9 +15,9 @@ void RunOptions();
 // Main Function
 int main()
 {
-    rpgText::PrintTitle();
+    rpgText::print_title();
     RunMainMenu();
-    rpgText::PrintEnd();
+    rpgText::print_end();
     int choice;
     std::cin >> choice;
     rpgText::clear_input();
@@ -30,7 +30,7 @@ void RunMainMenu()
     bool hasSavedGame = false;
     bool hasChosen = false;
     int choice{0};
-    rpgText::PrintMenu(hasSavedGame);
+    rpgText::print_menu(hasSavedGame);
     while (!hasChosen)
     {
         choice = rpgText::get_int();

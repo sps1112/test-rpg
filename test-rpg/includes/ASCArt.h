@@ -1,15 +1,18 @@
 #ifndef ASCIIART_H
 #define ASCIIART_H
 
+// Standard Headers
 #include <iostream>
 
 namespace rpgText
 {
     // Returns a Character string such as "------" with n dashes
-    char *GetDashes(int n);
+    char *get_dashes(int n);
 
-    //  String Array for Letters created with ASCII ART
+    //  Number of Rows for the Alphabets
     extern int wordLength;
+
+    // String Array for the Alphabets
 
     extern std::string A[5];
     extern std::string B[5];
@@ -39,4 +42,5 @@ namespace rpgText
     extern std::string Z[5];
 
 } // namespace rpgText
-#endif
+
+#endif // !ASCIIART_H

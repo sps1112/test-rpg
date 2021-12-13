@@ -54,7 +54,7 @@ namespace rpgText
 
     void Character::PrintStats()
     {
-        PrintDash(10);
+        print_dash(10);
         log("[STATS]");
         print("Name:- ");
         log(name);
@@ -72,7 +72,7 @@ namespace rpgText
         log(spcDefence);
         print("Speed:- ");
         log(speed);
-        PrintDash(10);
+        print_dash(10);
     }
 
     // The Enemy Class : Child of Character Class

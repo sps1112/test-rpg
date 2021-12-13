@@ -1,6 +1,7 @@
 #ifndef PRINTER_H
 #define PRINTER_H
 
+// Standard Headers
 #include <iostream>
 #include "Standard.h"
 #include "ASCArt.h"
@@ -8,24 +9,24 @@
 // Namespace for Printer Header
 namespace rpgText
 {
-    // Prints consecutive n '-'
-    void PrintDash(int n);
+    // Prints consecutive n number of '-'
+    void print_dash(int n);
 
     // Prints an alphabet and its certain line
-    void PrintLetter(const char c, int line = 0);
+    void print_letter(const char c, int line = 0);
 
     // Prints a given word
-    void PrintWord(const char *word);
+    void print_word(const char *word);
 
     // Prints the Game title
-    void PrintTitle();
+    void print_title();
 
     // Prints the Game Ending
-    void PrintEnd();
+    void print_end();
 
     // Prints the main menu
-    void PrintMenu(bool hasSaveGame);
+    void print_menu(bool hasSaveGame);
 
 } // namespace rpgText
 
-#endif
+#endif // !PRINTER_H

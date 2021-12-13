@@ -9,8 +9,8 @@ This contains info about how the code is laid out
 - [X] Math Engine
 - [X] Standard
   - [X] File Manager
-- [ ] ASCArt
-  - [ ] Printer
+- [X] ASCArt
+  - [X] Printer
 - [ ] Character
   - [ ] Battle
 - [ ] Application

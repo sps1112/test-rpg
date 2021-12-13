@@ -8,7 +8,7 @@ This contains info about how the code is laid out
 - [X] File System
 - [X] Math Engine
 - [X] Standard
-  - [ ] File Manager
+  - [X] File Manager
 - [ ] ASCArt
   - [ ] Printer
 - [ ] Character

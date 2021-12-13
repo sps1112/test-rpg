@@ -135,64 +135,64 @@ namespace rpgText
         const char *statsCode = stats.c_str();
 
         // Set Name
-        int lineStartIndex = GetLineStartIndex(statsCode, 0);
-        char *lineI = GetLine(statsCode, lineStartIndex);
-        char *VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        name = ConvertToString(VALUE);
+        int lineStartIndex = get_index_start(statsCode, 0);
+        char *lineI = get_line(statsCode, lineStartIndex);
+        char *VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        name = arr_to_string(VALUE);
 
         // Set Health
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        health = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        health = arr_to_float(VALUE);
 
         // Set Mana
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        mana = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        mana = arr_to_float(VALUE);
 
         // Set Attack
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        attack = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        attack = arr_to_float(VALUE);
 
         // Set Defence
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        defence = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        defence = arr_to_float(VALUE);
 
         // Set Special Attack
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        spcAttack = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        spcAttack = arr_to_float(VALUE);
 
         // Set Special Defence
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        spcDefence = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        spcDefence = arr_to_float(VALUE);
 
         // Set Speed
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        speed = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        speed = arr_to_float(VALUE);
 
         // Set Current EXP
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        currentExp = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        currentExp = arr_to_float(VALUE);
 
         // Set EXP to Next Level
-        lineStartIndex = GetLineStartIndex(statsCode, lineStartIndex);
-        lineI = GetLine(statsCode, lineStartIndex);
-        VALUE = GetLine(lineI, GetEndIndexString(lineI, ":- "));
-        expToNextlevel = ConvertToFloat(VALUE);
+        lineStartIndex = get_index_start(statsCode, lineStartIndex);
+        lineI = get_line(statsCode, lineStartIndex);
+        VALUE = get_line(lineI, get_string_end(lineI, ":- "));
+        expToNextlevel = arr_to_float(VALUE);
 
         SetPrivate();
         WriteToFile();

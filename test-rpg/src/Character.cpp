@@ -5,7 +5,7 @@ namespace rpgText
     // The Generic Character Class
     Character::Character()
     {
-        //default
+        // default
     }
 
     Character::Character(std::string NAME, float HEALTH, float MANA,
@@ -34,13 +34,13 @@ namespace rpgText
     void Character::ChangeHealth(float amount)
     {
         health += amount;
-        health = Clamp(0, maxHealth, health);
+        health = clamp(health, 0, maxHealth);
     }
 
     void Character::ChangeMana(float amount)
     {
         mana += amount;
-        mana = Clamp(0, maxMana, mana);
+        mana = clamp(mana, 0, maxMana);
     }
 
     bool Character::GetStatus()
@@ -55,30 +55,30 @@ namespace rpgText
     void Character::PrintStats()
     {
         PrintDash(10);
-        Log("[STATS]");
-        Print("Name:- ");
-        Log(name);
-        Print("Health:- ");
-        Log(health);
-        Print("Mana:- ");
-        Log(mana);
-        Print("Attack:- ");
-        Log(attack);
-        Print("Defence:- ");
-        Log(defence);
-        Print("Special Attack:- ");
-        Log(spcAttack);
-        Print("Special Defence:- ");
-        Log(spcDefence);
-        Print("Speed:- ");
-        Log(speed);
+        log("[STATS]");
+        print("Name:- ");
+        log(name);
+        print("Health:- ");
+        log(health);
+        print("Mana:- ");
+        log(mana);
+        print("Attack:- ");
+        log(attack);
+        print("Defence:- ");
+        log(defence);
+        print("Special Attack:- ");
+        log(spcAttack);
+        print("Special Defence:- ");
+        log(spcDefence);
+        print("Speed:- ");
+        log(speed);
         PrintDash(10);
     }
 
     // The Enemy Class : Child of Character Class
     Enemy::Enemy()
     {
-        //default
+        // default
     }
     Enemy::Enemy(std::string NAME, float HEALTH, float MANA,
                  float ATTACK, float DEFENCE,
@@ -101,7 +101,7 @@ namespace rpgText
     // The Player Class : Child of Character Class
     Player::Player()
     {
-        //default
+        // default
     }
 
     Player::Player(std::string NAME, bool viaFile, float HEALTH, float MANA,

@@ -20,7 +20,7 @@ int main()
     rpgText::PrintEnd();
     int choice;
     std::cin >> choice;
-    rpgText::ClearInput();
+    rpgText::clear_input();
     return 0;
 }
 
@@ -33,8 +33,8 @@ void RunMainMenu()
     rpgText::PrintMenu(hasSavedGame);
     while (!hasChosen)
     {
-        choice = rpgText::GetInt();
-        rpgText::ClearInput();
+        choice = rpgText::get_int();
+        rpgText::clear_input();
         switch (choice)
         {
         case 1:
@@ -48,11 +48,11 @@ void RunMainMenu()
             break;
         default:
             hasChosen = false;
-            rpgText::Print("Select Again: ");
+            rpgText::print("Select Again: ");
             break;
         }
     }
-    rpgText::Log("");
+    rpgText::log("");
     switch (choice)
     {
     case 1:
@@ -71,26 +71,26 @@ void RunGame()
 {
     bool isPlaying = true;
     int playChoice;
-    rpgText::Log("Game Started");
+    rpgText::log("Game Started");
     rpgText::Player player(FileSystem::get_path("test-rpg/data/Player.char").c_str());
     player.PrintStats();
     while (isPlaying)
     {
         if (rpgText::CheckBattle(30))
         {
-            rpgText::Log("You encountered an enemy");
+            rpgText::log("You encountered an enemy");
             rpgText::StartBattle(player);
         }
         else
         {
-            rpgText::Log("You are moving");
+            rpgText::log("You are moving");
         }
-        rpgText::Print("Enter 1 to continue or 0 to go back: ");
+        rpgText::print("Enter 1 to continue or 0 to go back: ");
         playChoice = 2;
         while (playChoice != 0 && playChoice != 1)
         {
-            playChoice = rpgText::GetInt();
-            rpgText::ClearInput();
+            playChoice = rpgText::get_int();
+            rpgText::clear_input();
             switch (playChoice)
             {
             case 0:
@@ -100,12 +100,12 @@ void RunGame()
                 isPlaying = true;
                 break;
             default:
-                rpgText::Print("Select again (1 to continue or 0 to go back): ");
+                rpgText::print("Select again (1 to continue or 0 to go back): ");
                 break;
             }
         }
     }
-    rpgText::Log("");
+    rpgText::log("");
     RunMainMenu();
 }
 
@@ -116,13 +116,13 @@ void RunOptions()
     int optionChoice;
     while (isOnOptions)
     {
-        rpgText::Log("Options is Running");
-        rpgText::Print("Enter 1 to continue or 0 to go back: ");
+        rpgText::log("Options is Running");
+        rpgText::print("Enter 1 to continue or 0 to go back: ");
         optionChoice = 2;
         while (optionChoice != 0 && optionChoice != 1)
         {
-            optionChoice = rpgText::GetInt();
-            rpgText::ClearInput();
+            optionChoice = rpgText::get_int();
+            rpgText::clear_input();
             switch (optionChoice)
             {
             case 0:
@@ -132,7 +132,7 @@ void RunOptions()
                 isOnOptions = true;
                 break;
             default:
-                rpgText::Print("Select again (1 to continue or 0 to go back): ");
+                rpgText::print("Select again (1 to continue or 0 to go back): ");
                 break;
             }
         }

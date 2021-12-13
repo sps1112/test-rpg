@@ -6,14 +6,14 @@ namespace rpgText
     // Prints consecutive n '-'
     void PrintDash(int n)
     {
-        Log(GetDashes(n));
+        log(GetDashes(n));
     }
 
     // Prints an alphabet and its certain line
     void PrintLetter(const char c, int line)
     {
         std::string part;
-        // Log(line);
+        // log(line);
         switch (c)
         {
         case 'A':
@@ -146,7 +146,7 @@ namespace rpgText
                 i++;
                 c = word[i];
             }
-            Log("");
+            log("");
         }
     }
 
@@ -156,42 +156,42 @@ namespace rpgText
         PrintDash(15);
         PrintWord(GAME_NAME);
         PrintDash(15);
-        Log("");
+        log("");
     }
 
     // Prints the Game Ending
     void PrintEnd()
     {
-        Log("");
+        log("");
         PrintDash(15);
         PrintWord("Game Over");
         PrintDash(15);
-        Log("");
+        log("");
         std::cout << "Enter Any Number to Quit: ";
     }
 
     // Prints the main menu
     void PrintMenu(bool hasSaveGame)
     {
-        Log("");
+        log("");
         PrintDash(15);
-        Log("MAIN MENU");
+        log("MAIN MENU");
         PrintDash(15);
-        Log("");
+        log("");
         if (hasSaveGame)
         {
-            Log("1. Continue");
-            Log("2. New Game");
-            Log("3. Options");
-            Log("4. Quit");
+            log("1. Continue");
+            log("2. New Game");
+            log("3. Options");
+            log("4. Quit");
         }
         else
         {
-            Log("1. New Game");
-            Log("2. Options");
-            Log("3. Quit");
+            log("1. New Game");
+            log("2. Options");
+            log("3. Quit");
         }
-        Log("");
+        log("");
         std::cout << "Enter any of these numbers: ";
     }
 } // namespace rpgText

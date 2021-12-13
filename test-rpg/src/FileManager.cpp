@@ -160,7 +160,7 @@ namespace rpgText
             }
             return stringIndex;
         }
-        Log("INVALID TARGET STRING");
+        log("INVALID TARGET STRING");
         return -1;
     }
 
@@ -175,7 +175,7 @@ namespace rpgText
             index += targetLength - 1;
             return index;
         }
-        Log("INVALID TARGET STRING");
+        log("INVALID TARGET STRING");
         return -1;
     }
 } // namespace rpgText

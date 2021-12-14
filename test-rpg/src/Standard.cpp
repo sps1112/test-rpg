@@ -67,10 +67,22 @@ namespace rpgText
         return n;
     }
 
-    // Clears the input buffer to take a single value each time
     void clear_input()
     {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
+
+    void clear_screen()
+    {
+        if (CHECK_WINDOWS)
+        {
+            system("cls");
+        }
+        else
+        {
+            system("clear");
+        }
+    }
+
 } // namespace rpgText

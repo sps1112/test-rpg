@@ -1,11 +1,15 @@
 #ifndef STANDARD_H
 #define STANDARD_H
 
+// Custom Headers
+#include <config.h>
+
 // Standard Headers
 #include <iostream>
 #include <string>
 #include <ios>
 #include <limits>
+#include <io.h>
 
 namespace rpgText
 {
@@ -25,6 +29,9 @@ namespace rpgText
 
     // Clears the input buffer to take a single value each time
     void clear_input();
+
+    // Clears the output window
+    void clear_screen();
 
 } // namespace rpgText
 

@@ -8,29 +8,83 @@
 // Standard Headers
 #include <iostream>
 
+// Game Data
+
+// All the game modes
+enum GAME_STATE
+{
+    STATE_MENU,    // Main Menu
+    STATE_OPTIONS, // Options Menu
+    STATE_QUIT,    // Quit Menu
+    STATE_MAP,     // Map Menu
+    STATE_BATTLE,  // Battle Menu
+    STATE_PAUSE,   // Pause Menu
+};
+GAME_STATE state = STATE_MENU; // Current State of the Game
+
+// Whether there is save data available
+bool hasSavedGame = false;
+bool toRun = true;
+
+// Player Character
+rpgText::Player player(FileSystem::get_path("test-rpg/data/Player.char").c_str());
+
 // Function Declaration
+
+void game_loop();
 void run_main_menu();
-void run_game();
 void run_options();
+void quit_game();
+void run_game();
+void start_battle();
+void pause_game();
 
 // Main Function
 int main()
 {
-    rpgText::print_title();
-    run_main_menu();
-    rpgText::print_end();
-    int choice;
-    std::cin >> choice;
-    rpgText::clear_input();
+    game_loop();
     return 0;
+}
+
+// Runs the game loop
+void game_loop()
+{
+    while (toRun)
+    {
+        rpgText::clear_screen();
+        switch (state)
+        {
+        case STATE_MENU:
+            run_main_menu();
+            break;
+        case STATE_OPTIONS:
+            run_options();
+            break;
+        case STATE_QUIT:
+            quit_game();
+            toRun = false;
+            break;
+        case STATE_MAP:
+            run_game();
+            break;
+        case STATE_BATTLE:
+            start_battle();
+            break;
+        case STATE_PAUSE:
+            pause_game();
+            break;
+        default:
+            toRun = false;
+        }
+    }
 }
 
 // Main Menu Function
 void run_main_menu()
 {
-    bool hasSavedGame = false;
+    rpgText::print_title();
     bool hasChosen = false;
-    int choice{0};
+    int choice = 0;
     rpgText::print_menu(hasSavedGame);
     while (!hasChosen)
     {
@@ -39,32 +93,69 @@ void run_main_menu()
         switch (choice)
         {
         case 1:
-            hasChosen = true;
-            break;
         case 2:
-            hasChosen = true;
-            break;
         case 3:
             hasChosen = true;
             break;
         default:
             hasChosen = false;
             rpgText::print("Select Again: ");
-            break;
         }
     }
     rpgText::log("");
     switch (choice)
     {
     case 1:
-        run_game();
+        state = STATE_MAP;
         break;
     case 2:
-        run_options();
+        state = STATE_OPTIONS;
         break;
     case 3:
+        state = STATE_QUIT;
         break;
     }
+}
+
+// Options Menu Function
+void run_options()
+{
+    rpgText::print_options();
+    bool hasChosen = false;
+    int choice = 0;
+    while (!hasChosen)
+    {
+        choice = rpgText::get_int();
+        rpgText::clear_input();
+        switch (choice)
+        {
+        case 1:
+        case 2:
+            hasChosen = true;
+            break;
+        default:
+            hasChosen = false;
+            rpgText::print("Select Again: ");
+        }
+    }
+    rpgText::log("");
+    if (choice == 1)
+    {
+        player.print_stats();
+        rpgText::print("Enter any number to go back to menu: ");
+        choice = rpgText::get_int();
+        rpgText::clear_input();
+    }
+    state = STATE_MENU;
+}
+
+// Quits the Game
+void quit_game()
+{
+    rpgText::print_end();
+    int choice = rpgText::get_int();
+    rpgText::clear_input();
+    rpgText::clear_screen();
 }
 
 // Game Loop Function
@@ -73,8 +164,9 @@ void run_game()
     bool isPlaying = true;
     int playChoice;
     rpgText::log("Game Started");
-    rpgText::Player player(FileSystem::get_path("test-rpg/data/Player.char").c_str());
+    rpgText::print_line();
     player.print_stats();
+    rpgText::log("");
     while (isPlaying)
     {
         if (rpgText::check_for_battle(30))
@@ -107,36 +199,13 @@ void run_game()
         }
     }
     rpgText::log("");
-    run_main_menu();
+    state = STATE_MENU;
 }
 
-// Options Menu Function
-void run_options()
+void start_battle()
 {
-    bool isOnOptions = true;
-    int optionChoice;
-    while (isOnOptions)
-    {
-        rpgText::log("Options is Running");
-        rpgText::print("Enter 1 to continue or 0 to go back: ");
-        optionChoice = 2;
-        while (optionChoice != 0 && optionChoice != 1)
-        {
-            optionChoice = rpgText::get_int();
-            rpgText::clear_input();
-            switch (optionChoice)
-            {
-            case 0:
-                isOnOptions = false;
-                break;
-            case 1:
-                isOnOptions = true;
-                break;
-            default:
-                rpgText::print("Select again (1 to continue or 0 to go back): ");
-                break;
-            }
-        }
-    }
-    run_main_menu();
+}
+
+void pause_game()
+{
 }

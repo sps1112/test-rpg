@@ -9,6 +9,11 @@ namespace rpgText
         log(get_dashes(n));
     }
 
+    void print_line()
+    {
+        print_dash(15);
+    }
+
     // Prints an alphabet and its certain line
     void print_letter(const char c, int line)
     {
@@ -151,19 +156,18 @@ namespace rpgText
     // Prints the Game title
     void print_title()
     {
-        print_dash(15);
+        print_line();
         print_word(GAME_NAME);
-        print_dash(15);
+        print_line();
         log("");
     }
 
     // Prints the Game Ending
     void print_end()
     {
-        log("");
-        print_dash(15);
+        print_line();
         print_word("Game Over");
-        print_dash(15);
+        print_line();
         log("");
         print("Enter Any Number to Quit: ");
     }
@@ -172,25 +176,39 @@ namespace rpgText
     void print_menu(bool hasSaveGame)
     {
         log("");
-        print_dash(15);
+        print_line();
         log("MAIN MENU");
-        print_dash(15);
+        print_line();
         log("");
         if (hasSaveGame)
         {
-            log("1. Continue");
-            log("2. New Game");
-            log("3. Options");
-            log("4. Quit");
+            log("1-> Continue");
+            log("2-> New Game");
+            log("3-> Options");
+            log("4-> Quit");
         }
         else
         {
-            log("1. New Game");
-            log("2. Options");
-            log("3. Quit");
+            log("1-> New Game");
+            log("2-> Options");
+            log("3-> Quit");
         }
         log("");
-        print("Enter any of these numbers: ");
+        print_line();
+        print("Choose game mode by entering linked number: ");
+    }
+
+    void print_options()
+    {
+        print_line();
+        print_word("OPTIONS");
+        print_line();
+        log("");
+        log("1-> Print Stats");
+        log("2-> Back to Menu");
+        log("");
+        print_line();
+        print("Choose the option by entering linked number: ");
     }
 
 } // namespace rpgText

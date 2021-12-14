@@ -4,6 +4,7 @@
 // Custom Headers
 #include "Standard.h"
 #include "Character.h"
+#include <FileSystem.h>
 
 // Standard Headers
 #include <iostream>

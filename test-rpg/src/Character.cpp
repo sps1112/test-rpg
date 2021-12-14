@@ -71,7 +71,7 @@ namespace rpgText
         print_dash(10);
     }
 
-    Enemy::Enemy(std::string name_, int level, float str, float sta,
+    Enemy::Enemy(std::string name_, bool viaData, int level, float str, float sta,
                  float inte, float agi, float luck, float exp, float money)
     {
         name = name_;
@@ -80,6 +80,54 @@ namespace rpgText
         cStats = stats;
         expDrop = exp;
         moneyDrop = money;
+    }
+
+    Enemy::Enemy(const char *path)
+    {
+        std::string statsStr = get_file_data(path);
+        const char *statsCode = statsStr.c_str();
+        int index = 0;
+
+        // Set Name
+        index = skip_lines(statsCode, 1, index);
+        name = arr_to_string(get_data_point(statsCode, ":- ", index));
+
+        // Set Strength
+        index = skip_lines(statsCode, 1, index);
+        float str = arr_to_float(get_data_point(statsCode, ":- ", index));
+
+        // Set Stamina
+        index = skip_lines(statsCode, 1, index);
+        float sta = arr_to_float(get_data_point(statsCode, ":- ", index));
+
+        // Set Intelligence
+        index = skip_lines(statsCode, 1, index);
+        float inte = arr_to_float(get_data_point(statsCode, ":- ", index));
+
+        // Set Agility
+        index = skip_lines(statsCode, 1, index);
+        float agi = arr_to_float(get_data_point(statsCode, ":- ", index));
+
+        // Set Luck
+        index = skip_lines(statsCode, 1, index);
+        float luck = arr_to_float(get_data_point(statsCode, ":- ", index));
+
+        // Set Level
+        index = skip_lines(statsCode, 1, index);
+        int level = int(arr_to_float(get_data_point(statsCode, ":- ", index)));
+
+        // Set Stats
+        BaseStats bs(str, sta, inte, agi, luck);
+        stats = Stats(bs, level);
+        cStats = stats;
+
+        // Set Exp Drop
+        index = skip_lines(statsCode, 1, index);
+        expDrop = arr_to_float(get_data_point(statsCode, ":- ", index));
+
+        // Set Money Drop
+        index = skip_lines(statsCode, 1, index);
+        moneyDrop = arr_to_float(get_data_point(statsCode, ":- ", index));
     }
 
     Player::Player(std::string name_, bool viaData, int level, float str, float sta,
@@ -94,9 +142,9 @@ namespace rpgText
         write_to_file();
     }
 
-    Player::Player(const char *playerStatsPath)
+    Player::Player(const char *path)
     {
-        std::string statsStr = get_file_data(playerStatsPath);
+        std::string statsStr = get_file_data(path);
         const char *statsCode = statsStr.c_str();
         int index = 0;
 

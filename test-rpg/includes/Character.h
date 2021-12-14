@@ -115,8 +115,11 @@ namespace rpgText
         float moneyDrop; // Money dropped by the enemy
 
         // Enemy Constructor
-        Enemy(std::string name_ = "Enemy", int level = 2, float str = 5, float sta = 5,
+        Enemy(std::string name_, bool viaData, int level = 2, float str = 5, float sta = 5,
               float inte = 5, float agi = 5, float luck = 5, float exp = 15, float money = 20);
+
+        // Enemy Path Constructor
+        Enemy(const char *path);
     };
 
     // The Player Class : Child of Character Class
@@ -134,7 +137,7 @@ namespace rpgText
         Player(std::string name_, bool viaData, int level = 2, float str = 5, float sta = 5,
                float inte = 5, float agi = 5, float luck = 5, float exp = 0, float next = 50);
         // Player Path Constructor
-        Player(const char *playerStatsPath);
+        Player(const char *path);
 
         // Player Destructor
         ~Player();

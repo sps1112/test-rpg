@@ -12,11 +12,14 @@ namespace rpgText
     // Initiates battle with enemy
     void initiate_battle(const Player &player)
     {
-        Enemy enemy("Goblin");
+        Enemy enemy(FileSystem::get_path("test-rpg/data/Enemies/Goblin.enemy").c_str());
         print("A ");
         print(enemy.name);
         print(" is attacking ");
         log(player.name);
+        log(" ");
+        log("Enemy stats are:-");
+        enemy.print_stats();
         int attackChoice{};
         while (enemy.get_status())
         {

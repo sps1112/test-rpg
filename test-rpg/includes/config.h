@@ -7,6 +7,7 @@
 
 // !GAME_DETAILS
 #define GAME_NAME "TALE OF MAGI"
+#define END_TEXT "GAME OVER"
 // ---------------------------
 
 #endif // !CONFIG_H

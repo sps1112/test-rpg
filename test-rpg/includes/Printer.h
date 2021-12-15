@@ -11,6 +11,9 @@
 // Namespace for Printer Header
 namespace rpgText
 {
+    // Skips to a new line in output
+    void new_line();
+
     // Prints consecutive n number of '-'
     void print_dash(int n);
 
@@ -22,6 +25,9 @@ namespace rpgText
 
     // Prints a given word
     void print_word(const char *word);
+
+    // Prints a number with label
+    void print_data(const char *label, int n);
 
     // Prints the Game title
     void print_title();

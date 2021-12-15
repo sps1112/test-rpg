@@ -3,6 +3,11 @@
 
 namespace rpgText
 {
+    void new_line()
+    {
+        log("");
+    }
+
     void print_dash(int n)
     {
         log(get_dashes(n));
@@ -146,8 +151,14 @@ namespace rpgText
                 i++;
                 c = word[i];
             }
-            log("");
+            new_line();
         }
+    }
+
+    void print_data(const char *label, int n)
+    {
+        print(label);
+        log(n);
     }
 
     void print_title()
@@ -155,25 +166,25 @@ namespace rpgText
         print_line();
         print_word(GAME_NAME);
         print_line();
-        log("");
+        new_line();
     }
 
     void print_end()
     {
         print_line();
-        print_word("Game Over");
+        print_word(END_TEXT);
         print_line();
-        log("");
+        new_line();
         print("Enter Any Number to Quit: ");
     }
 
     void print_menu(bool hasSaveGame)
     {
-        log("");
+        new_line();
         print_line();
         log("MAIN MENU");
         print_line();
-        log("");
+        new_line();
         if (hasSaveGame)
         {
             log("1-> Continue");
@@ -187,7 +198,7 @@ namespace rpgText
             log("2-> Options");
             log("3-> Quit");
         }
-        log("");
+        new_line();
         print_line();
         print("Choose game mode by entering linked number: ");
     }
@@ -197,10 +208,10 @@ namespace rpgText
         print_line();
         print_word("OPTIONS");
         print_line();
-        log("");
+        new_line();
         log("1-> Print Stats");
         log("2-> Back to Menu");
-        log("");
+        new_line();
         print_line();
         print("Choose the option by entering linked number: ");
     }

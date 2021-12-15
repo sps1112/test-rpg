@@ -30,14 +30,13 @@ namespace rpgText
 
     void Character::print_stats()
     {
-        print_dash(10);
+        print_line();
         log("[STATS]");
 
         print("Name:- ");
         log(name);
 
-        print("Level:- ");
-        log(stats.level);
+        print_data("Level:- ", stats.level);
 
         print("Health:- ");
         print(cStats.health);
@@ -49,26 +48,16 @@ namespace rpgText
         print("/");
         log(stats.mana);
 
-        print("Attack:- ");
-        log(cStats.attack);
-        print("Defence:- ");
-        log(cStats.defence);
+        print_data("Attack:- ", cStats.attack);
+        print_data("Defence:- ", cStats.defence);
+        print_data("Mana Attack:- ", cStats.mAttack);
+        print_data("Mana Defence:- ", cStats.mDefence);
+        print_data("Speed:- ", cStats.speed);
+        print_data("Accuracy:- ", cStats.accuracy);
+        print_data("Evasion:- ", cStats.evasion);
+        print_data("Crit Chance:- ", cStats.crit);
 
-        print("Mana Attack:- ");
-        log(cStats.mAttack);
-        print("Mana Defence:- ");
-        log(cStats.mDefence);
-
-        print("Speed:- ");
-        log(cStats.speed);
-        print("Accuracy:- ");
-        log(cStats.accuracy);
-        print("Evasion:- ");
-        log(cStats.evasion);
-        print("Crit Chance:- ");
-        log(cStats.crit);
-
-        print_dash(10);
+        print_line();
     }
 
     Enemy::Enemy(std::string name_, bool viaData, int level, float str, float sta,

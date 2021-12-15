@@ -53,6 +53,7 @@ namespace rpgText
     {
         int n{};
         std::cin >> n;
+        clear_input();
         return n;
     }
 
@@ -70,14 +71,7 @@ namespace rpgText
 
     void clear_screen()
     {
-        if (CHECK_WINDOWS)
-        {
-            system("cls");
-        }
-        else
-        {
-            system("clear");
-        }
+        system((CHECK_WINDOWS) ? ("cls") : ("clear"));
     }
 
 } // namespace rpgText

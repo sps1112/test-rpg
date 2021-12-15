@@ -15,14 +15,13 @@ namespace rpgText
         print(enemy.name);
         print(" is attacking ");
         log(player.name);
-        log(" ");
+        new_line();
         log("Enemy stats are:-");
         enemy.print_stats();
-        int attackChoice{};
+        int attackChoice;
         while (enemy.get_status())
         {
-            print("Enemy's health is ");
-            log(enemy.cStats.health);
+            print_data("Enemy's health: ", enemy.cStats.health);
             attackChoice = get_int_prompt("Press 1 to attack or any other to wait: ");
             if (attackChoice == 1)
             {

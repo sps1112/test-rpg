@@ -89,7 +89,6 @@ void run_main_menu()
     while (!hasChosen)
     {
         choice = rpgText::get_int();
-        rpgText::clear_input();
         switch (choice)
         {
         case 1:
@@ -102,7 +101,7 @@ void run_main_menu()
             rpgText::print("Select Again: ");
         }
     }
-    rpgText::log("");
+    rpgText::new_line();
     switch (choice)
     {
     case 1:
@@ -126,7 +125,6 @@ void run_options()
     while (!hasChosen)
     {
         choice = rpgText::get_int();
-        rpgText::clear_input();
         switch (choice)
         {
         case 1:
@@ -144,7 +142,6 @@ void run_options()
         player.print_stats();
         rpgText::print("Enter any number to go back to menu: ");
         choice = rpgText::get_int();
-        rpgText::clear_input();
     }
     state = STATE_MENU;
 }
@@ -154,7 +151,6 @@ void quit_game()
 {
     rpgText::print_end();
     int choice = rpgText::get_int();
-    rpgText::clear_input();
     rpgText::clear_screen();
 }
 
@@ -166,7 +162,7 @@ void run_game()
     rpgText::log("Game Started");
     rpgText::print_line();
     player.print_stats();
-    rpgText::log("");
+    rpgText::new_line();
     while (isPlaying)
     {
         if (rpgText::check_for_battle(30))
@@ -183,7 +179,6 @@ void run_game()
         while (playChoice != 0 && playChoice != 1)
         {
             playChoice = rpgText::get_int();
-            rpgText::clear_input();
             switch (playChoice)
             {
             case 0:
@@ -198,7 +193,7 @@ void run_game()
             }
         }
     }
-    rpgText::log("");
+    rpgText::new_line();
     state = STATE_MENU;
 }
 

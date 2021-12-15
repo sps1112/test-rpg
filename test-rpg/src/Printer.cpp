@@ -3,7 +3,6 @@
 
 namespace rpgText
 {
-    // Prints consecutive n '-'
     void print_dash(int n)
     {
         log(get_dashes(n));
@@ -14,7 +13,6 @@ namespace rpgText
         print_dash(15);
     }
 
-    // Prints an alphabet and its certain line
     void print_letter(const char c, int line)
     {
         std::string part;
@@ -130,7 +128,6 @@ namespace rpgText
         print(part);
     }
 
-    // Prints a given word
     void print_word(const char *word)
     {
         int i = 0;
@@ -153,7 +150,6 @@ namespace rpgText
         }
     }
 
-    // Prints the Game title
     void print_title()
     {
         print_line();
@@ -162,7 +158,6 @@ namespace rpgText
         log("");
     }
 
-    // Prints the Game Ending
     void print_end()
     {
         print_line();
@@ -172,7 +167,6 @@ namespace rpgText
         print("Enter Any Number to Quit: ");
     }
 
-    // Prints the main menu
     void print_menu(bool hasSaveGame)
     {
         log("");

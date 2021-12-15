@@ -2,7 +2,6 @@
 
 namespace rpgText
 {
-    // Prints message on a single line without moving over
     void print(const char *message)
     {
         std::cout << message;
@@ -22,11 +21,10 @@ namespace rpgText
         }
         else
         {
-            print(std::to_string(num));
+            print(std::to_string(int(num)));
         }
     }
 
-    // Prints message on a single line and then moves to next line
     void log(const char *message)
     {
         print(message);
@@ -47,11 +45,10 @@ namespace rpgText
         }
         else
         {
-            log(std::to_string(num));
+            log(std::to_string(int(num)));
         }
     }
 
-    // Gets Input from Keyboard
     int get_int()
     {
         int n{};
@@ -62,9 +59,7 @@ namespace rpgText
     int get_int_prompt(const char *prompt)
     {
         print(prompt);
-        int n{};
-        std::cin >> n;
-        return n;
+        return get_int();
     }
 
     void clear_input()

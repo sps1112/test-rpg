@@ -2,7 +2,6 @@
 
 namespace rpgText
 {
-    // Calculates length of character array
     int get_char_arr_len(const char *charArray)
     {
         int index = 0;
@@ -23,7 +22,6 @@ namespace rpgText
         return (index + 1);
     }
 
-    // Converts character Array to string
     std::string arr_to_string(const char *charArray)
     {
         std::string s = "";
@@ -44,7 +42,6 @@ namespace rpgText
         return s;
     }
 
-    // Converts chararcter array to float ("70" to 70.0)
     float arr_to_float(const char *charArray)
     {
         std::string s = arr_to_string(charArray);
@@ -54,7 +51,6 @@ namespace rpgText
         return value;
     }
 
-    // Gets Single Line from a starting Index till '\n'
     char *get_line(const char *charList, int startIndex)
     {
         char *newLine = new char[get_char_arr_len(charList)];
@@ -82,7 +78,6 @@ namespace rpgText
         return newLine;
     }
 
-    // Gets ending index of a line from a starting Index
     int get_index_end(const char *charList, int startIndex)
     {
         int index = startIndex;
@@ -103,7 +98,6 @@ namespace rpgText
         return index;
     }
 
-    // Gets starting index of next line from a starting Index
     int get_index_start(const char *charList, int startIndex)
     {
         return (get_index_end(charList, startIndex) + 1);
@@ -114,7 +108,6 @@ namespace rpgText
         return (get_index_end(charList, startIndex) + 1);
     }
 
-    // Get starting Index of a char array in another char array
     int get_string_start(char *mainCharArray, const char *targetCharArray)
     {
         int mainLength = get_char_arr_len(mainCharArray);
@@ -164,7 +157,6 @@ namespace rpgText
         return -1;
     }
 
-    // Get ending Index of a char array in another char array
     int get_string_end(char *mainCharArray, const char *targetCharArray)
     {
         int mainLength = get_char_arr_len(mainCharArray);
@@ -179,7 +171,6 @@ namespace rpgText
         return -1;
     }
 
-    // Opens file and gets data as Char Array
     std::string get_file_data(const char *path)
     {
         std::ifstream file;
@@ -190,7 +181,6 @@ namespace rpgText
         return fStream.str();
     }
 
-    // Skips by n lines
     int skip_lines(const char *dataFile, int n, int startIndex)
     {
         int index = startIndex;
@@ -201,7 +191,6 @@ namespace rpgText
         return index;
     }
 
-    // Gets Data point in the data file from the startIndex using the testChar
     char *get_data_point(const char *dataFile, const char *testChar, int index)
     {
         char *line = get_line(dataFile, index);

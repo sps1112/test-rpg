@@ -2,14 +2,12 @@
 
 namespace rpgText
 {
-    // Checks if Enemy is encountered based on "chance"
     bool check_for_battle(int chance)
     {
         int num = (rand() % 100) + 1;
         return (num <= chance);
     }
 
-    // Initiates battle with enemy
     void initiate_battle(const Player &player)
     {
         Enemy enemy(FileSystem::get_path("test-rpg/data/Enemies/Goblin.enemy").c_str());

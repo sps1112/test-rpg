@@ -2,7 +2,6 @@
 
 namespace rpgText
 {
-    // Returns a Character string such as "------" with n dashes
     char *get_dashes(int n)
     {
         char *line = new char[n + 1];
@@ -14,7 +13,6 @@ namespace rpgText
         return line;
     }
 
-    //  Number of Rows for the Alphabets
     int wordLength = 5;
 
     //  String Array for Letters created with ASCII ART

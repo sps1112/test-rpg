@@ -216,4 +216,17 @@ namespace rpgText
         print("Choose the option by entering linked number: ");
     }
 
+    void print_pause()
+    {
+        print_line();
+        print_word("PAUSE MENU");
+        print_line();
+        new_line();
+        log("1-> Print Stats");
+        log("2-> Back to Game");
+        new_line();
+        print_line();
+        print("Choose the option by entering linked number: ");
+    }
+
 } // namespace rpgText

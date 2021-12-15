@@ -41,6 +41,9 @@ namespace rpgText
     // Prints the option menu
     void print_options();
 
+    // Prints the pause menu
+    void print_pause();
+
 } // namespace rpgText
 
 #endif // !PRINTER_H

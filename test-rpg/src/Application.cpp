@@ -24,6 +24,7 @@ GAME_STATE state = STATE_MENU; // Current State of the Game
 
 // Whether there is save data available
 bool hasSavedGame = false;
+// Is the game running
 bool toRun = true;
 
 // Player Character
@@ -67,12 +68,6 @@ void game_loop()
         case STATE_MAP:
             run_game();
             break;
-        case STATE_BATTLE:
-            start_battle();
-            break;
-        case STATE_PAUSE:
-            pause_game();
-            break;
         default:
             toRun = false;
         }
@@ -83,10 +78,9 @@ void game_loop()
 void run_main_menu()
 {
     rpgText::print_title();
-    bool hasChosen = false;
-    int choice = 0;
     rpgText::print_menu(hasSavedGame);
-    while (!hasChosen)
+    int choice = -1;
+    while (choice == -1)
     {
         choice = rpgText::get_int();
         switch (choice)
@@ -94,11 +88,10 @@ void run_main_menu()
         case 1:
         case 2:
         case 3:
-            hasChosen = true;
             break;
         default:
-            hasChosen = false;
-            rpgText::print("Select Again: ");
+            choice = -1;
+            rpgText::print("Wrong option! Select Again: ");
         }
     }
     rpgText::new_line();
@@ -120,20 +113,18 @@ void run_main_menu()
 void run_options()
 {
     rpgText::print_options();
-    bool hasChosen = false;
-    int choice = 0;
-    while (!hasChosen)
+    int choice = -1;
+    while (choice == -1)
     {
         choice = rpgText::get_int();
         switch (choice)
         {
         case 1:
         case 2:
-            hasChosen = true;
             break;
         default:
-            hasChosen = false;
-            rpgText::print("Select Again: ");
+            choice = -1;
+            rpgText::print("Wrong option! Select Again: ");
         }
     }
     rpgText::new_line();
@@ -180,7 +171,7 @@ void run_game()
                 break;
             default:
                 choice = -1;
-                rpgText::print("Select Again: ");
+                rpgText::print("Wrong option! Select Again: ");
                 break;
             }
         }
@@ -213,7 +204,7 @@ void run_game()
                     break;
                 default:
                     choice = -1;
-                    rpgText::print("Select Again: ");
+                    rpgText::print("Wrong option! Select Again: ");
                 }
             }
             rpgText::print_line();
@@ -222,6 +213,7 @@ void run_game()
             {
                 if (rpgText::check_for_battle(20))
                 {
+                    state = STATE_BATTLE;
                     start_battle();
                 }
             }
@@ -229,41 +221,42 @@ void run_game()
         else if (choice == 2)
         {
             state = STATE_PAUSE;
-            gameRunning = false;
+            pause_game();
         }
         else if (choice == 3)
         {
             state = STATE_MENU;
             gameRunning = false;
         }
+        rpgText::clear_screen();
     }
 }
 
 void start_battle()
 {
+    rpgText::clear_screen();
     rpgText::log("You encountered an enemy");
     rpgText::print_line();
     rpgText::initiate_battle(player);
     rpgText::print_line();
+    state = STATE_MAP;
 }
 
 void pause_game()
 {
     rpgText::print_pause();
-    bool hasChosen = false;
-    int choice = 0;
-    while (!hasChosen)
+    int choice = -1;
+    while (choice == -1)
     {
         choice = rpgText::get_int();
         switch (choice)
         {
         case 1:
         case 2:
-            hasChosen = true;
             break;
         default:
-            hasChosen = false;
-            rpgText::print("Select Again: ");
+            choice = -1;
+            rpgText::print("Wrong option! Select Again: ");
         }
     }
     rpgText::new_line();

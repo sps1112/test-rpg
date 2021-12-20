@@ -23,6 +23,12 @@ namespace rpgText
         cStats.mana = clamp(cStats.mana, 0, stats.mana);
     }
 
+    void Character::reset_stats()
+    {
+        cStats.health = stats.health;
+        cStats.mana = stats.mana;
+    }
+
     bool Character::get_status()
     {
         return (cStats.health > 0);

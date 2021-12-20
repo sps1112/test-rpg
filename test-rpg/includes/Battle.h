@@ -21,6 +21,12 @@ namespace rpgText
     // Initiates battle with enemy
     void initiate_battle(Player &player);
 
+    // Execute player's turn
+    bool player_turn(Player *player, Enemy *enemy);
+
+    // Execute enemy's turn
+    bool enemy_turn(Player *player, Enemy *enemy);
+
 } // namespace rpgText
 
 #endif // !BATTLE_H

@@ -216,6 +216,12 @@ void run_game()
                 {
                     state = STATE_BATTLE;
                     start_battle();
+                    if (state == STATE_MENU)
+                    {
+                        player.reset_stats();
+                        gameRunning = false;
+                        break;
+                    }
                 }
             }
         }
@@ -240,7 +246,7 @@ void start_battle()
     rpgText::print_line();
     rpgText::initiate_battle(player);
     rpgText::print_line();
-    state = STATE_MAP;
+    state = (player.get_status()) ? STATE_MAP : STATE_MENU;
 }
 
 void pause_game()

@@ -99,7 +99,10 @@ namespace rpgText
         // Changes current mana
         void change_mana(float amount);
 
-        // Checks if health is zero
+        // Resets Stats
+        void reset_stats();
+
+        // Checks if health is greater than zero
         bool get_status();
 
         // Prints the current stats

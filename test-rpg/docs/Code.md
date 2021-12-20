@@ -12,5 +12,5 @@ This contains info about how the code is laid out
 - [X] ASCArt
   - [X] Printer
 - [X] Character
-  - [ ] Battle
-- [ ] Application
+  - [X] Battle
+- [X] Application

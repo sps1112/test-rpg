@@ -12,8 +12,14 @@
 
 namespace rpgText
 {
+    // Prints the start of an enemy encounter
+    void print_encounter(Enemy &enemy, std::string playerName);
+
+    // Prints the battle state
+    void print_battle(Player &player, Enemy &enemy);
+
     // Initiates battle with enemy
-    void initiate_battle(const Player &player);
+    void initiate_battle(Player &player);
 
 } // namespace rpgText
 

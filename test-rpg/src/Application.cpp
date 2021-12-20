@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "Battle.h"
 #include "FileSystem.h"
+#include "MathEngine.h"
 
 // Standard Headers
 #include <iostream>
@@ -211,7 +212,7 @@ void run_game()
             rpgText::new_line();
             for (int i = 0; i < 10; i++)
             {
-                if (rpgText::check_for_battle(20))
+                if (rpgText::check_event(20))
                 {
                     state = STATE_BATTLE;
                     start_battle();

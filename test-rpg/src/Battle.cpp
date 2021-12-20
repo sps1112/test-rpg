@@ -2,12 +2,6 @@
 
 namespace rpgText
 {
-    bool check_for_battle(int chance)
-    {
-        int num = (rand() % 100) + 1;
-        return (num <= chance);
-    }
-
     void initiate_battle(const Player &player)
     {
         Enemy enemy(FileSystem::get_path("test-rpg/data/Enemies/Goblin.enemy").c_str());
@@ -76,7 +70,7 @@ namespace rpgText
                 log("You waited this turn");
                 break;
             case 5:
-                if (check_for_battle(60))
+                if (check_event(60))
                 {
                     onBattle = false;
                     log("You ran away from the battle");
@@ -92,7 +86,7 @@ namespace rpgText
             }
             if (onBattle)
             {
-                attackChoice = get_int_prompt("Enter to start next turn");
+                attackChoice = get_int_prompt("Enter to start next turn: ");
                 clear_screen();
             }
         }

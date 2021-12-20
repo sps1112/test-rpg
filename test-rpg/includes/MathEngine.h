@@ -16,6 +16,9 @@ namespace rpgText
     // Clamps the value of num between min and max
     float clamp(float num, float min = 0.0f, float max = 1000.0f);
 
+    // Checks if an event of "percent" chance occurs
+    bool check_event(int percent);
+
 } // namespace rpgText
 
 #endif // !MATHENGINE_H

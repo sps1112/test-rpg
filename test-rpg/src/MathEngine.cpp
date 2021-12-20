@@ -17,4 +17,10 @@ namespace rpgText
         return (num > max) ? (max) : ((num < min) ? (min) : (num));
     }
 
+    bool check_event(int percent)
+    {
+        int n = (rand() % 100) + 1;
+        return (n <= percent);
+    }
+
 } // namespace rpgText

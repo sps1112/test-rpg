@@ -1,30 +1,38 @@
 #ifndef STANDARD_H
 #define STANDARD_H
 
+// Custom Headers
+#include <config.h>
+
+// Standard Headers
 #include <iostream>
-//for clear input
+#include <string>
 #include <ios>
 #include <limits>
+#include <io.h>
 
 namespace rpgText
 {
     // Prints message on a single line without moving over
-    void Print(const char *message);
-    void Print(std::string message);
-    void Print(const float num, int isChar = 0);
+    void print(const char *message);
+    void print(std::string message);
+    void print(const float num, int isChar = 0);
 
     // Prints message on a single line and then moves to next line
-    void Log(const char *message);
-    void Log(std::string message);
-    void Log(const float num, int isChar = 0);
+    void log(const char *message);
+    void log(std::string message);
+    void log(const float num, int isChar = 0);
 
     // Gets Input from Keyboard
-    int GetInt();
-    int GetIntWithPrompt(const char *prompt);
+    int get_int();
+    int get_int_prompt(const char *prompt);
 
     // Clears the input buffer to take a single value each time
-    void ClearInput();
+    void clear_input();
+
+    // Clears the output window
+    void clear_screen();
 
 } // namespace rpgText
 
-#endif
+#endif // !STANDARD_H

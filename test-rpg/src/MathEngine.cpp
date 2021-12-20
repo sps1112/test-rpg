@@ -2,37 +2,25 @@
 
 namespace rpgText
 {
-    // Get Maximum of a and b
-    float Max(float a, float b)
+    float max(float a, float b)
     {
-        if (a > b)
-        {
-            return a;
-        }
-        return b;
+        return (a > b) ? a : b;
     }
 
-    // Get Minimum of a and b
-    float Min(float a, float b)
+    float min(float a, float b)
     {
-        if (a < b)
-        {
-            return a;
-        }
-        return b;
+        return (a < b) ? a : b;
     }
 
-    // Clamps the value of num between min and max
-    float Clamp(float min, float max, float num)
+    float clamp(float num, float min, float max)
     {
-        if (num > max)
-        {
-            return max;
-        }
-        if (num < min)
-        {
-            return min;
-        }
-        return num;
+        return (num > max) ? (max) : ((num < min) ? (min) : (num));
     }
+
+    bool check_event(int percent)
+    {
+        int n = (rand() % 100) + 1;
+        return (n <= percent);
+    }
+
 } // namespace rpgText

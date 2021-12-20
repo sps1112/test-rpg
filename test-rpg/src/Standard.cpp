@@ -2,75 +2,76 @@
 
 namespace rpgText
 {
-    // Prints message on a single line without moving over
-    void Print(const char *message)
+    void print(const char *message)
     {
         std::cout << message;
     }
 
-    void Print(std::string message)
+    void print(std::string message)
     {
-        Print(message.c_str());
+        print(message.c_str());
     }
 
-    void Print(const float num, int isChar)
-    {
-        if (isChar)
-        {
-            char c = int(num);
-            Print(std::string(1, c));
-        }
-        else
-        {
-            Print(std::to_string(num));
-        }
-    }
-
-    // Prints message on a single line and then moves to next line
-    void Log(const char *message)
-    {
-        Print(message);
-        Print("\n");
-    }
-
-    void Log(std::string message)
-    {
-        Log(message.c_str());
-    }
-
-    void Log(const float num, int isChar)
+    void print(const float num, int isChar)
     {
         if (isChar)
         {
             char c = int(num);
-            Log(std::string(1, c));
+            print(std::string(1, c));
         }
         else
         {
-            Log(std::to_string(num));
+            print(std::to_string(int(num)));
         }
     }
 
-    // Gets Input from Keyboard
-    int GetInt()
+    void log(const char *message)
+    {
+        print(message);
+        print("\n");
+    }
+
+    void log(std::string message)
+    {
+        log(message.c_str());
+    }
+
+    void log(const float num, int isChar)
+    {
+        if (isChar)
+        {
+            char c = int(num);
+            log(std::string(1, c));
+        }
+        else
+        {
+            log(std::to_string(int(num)));
+        }
+    }
+
+    int get_int()
     {
         int n{};
         std::cin >> n;
+        clear_input();
         return n;
     }
 
-    int GetIntWithPrompt(const char *prompt)
+    int get_int_prompt(const char *prompt)
     {
-        Print(prompt);
-        int n{};
-        std::cin >> n;
-        return n;
+        print(prompt);
+        return get_int();
     }
 
-    // Clears the input buffer to take a single value each time
-    void ClearInput()
+    void clear_input()
     {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
+
+    void clear_screen()
+    {
+        system((CHECK_WINDOWS) ? ("cls") : ("clear"));
+    }
+
 } // namespace rpgText

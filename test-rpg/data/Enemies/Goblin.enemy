@@ -1,11 +1,10 @@
 [Stats]
 Name:- Goblin
-Health:- 30
-Mana:- 5
-Attack:- 8
-Defence:- 4
-SpecialAttack:- 3
-SpecialDefence:- 2
-Speed:- 10
+Strength:- 8
+Stamina:- 8
+Intelligence:- 8
+Agility:- 8
+Luck:- 8
+Level:- 3
 ExpDrop:- 10
 MoneyDrop:- 15

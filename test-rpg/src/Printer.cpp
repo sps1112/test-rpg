@@ -1,18 +1,26 @@
 #include "Printer.h"
+#include "config.h"
 
 namespace rpgText
 {
-    // Prints consecutive n '-'
-    void PrintDash(int n)
+    void new_line()
     {
-        Log(GetDashes(n));
+        log("");
     }
 
-    // Prints an alphabet and its certain line
-    void PrintLetter(const char c, int line)
+    void print_dash(int n)
+    {
+        log(get_dashes(n));
+    }
+
+    void print_line()
+    {
+        print_dash(15);
+    }
+
+    void print_letter(const char c, int line)
     {
         std::string part;
-        // Log(line);
         switch (c)
         {
         case 'A':
@@ -122,14 +130,12 @@ namespace rpgText
         default:
             part = std::string(1, c);
         }
-        std::cout << part;
+        print(part);
     }
 
-    // Prints a given word
-    void PrintWord(const char *word)
+    void print_word(const char *word)
     {
         int i = 0;
-        // int count = 0;
         char c = word[i];
         for (int j = 0; j < wordLength; j++)
         {
@@ -139,58 +145,88 @@ namespace rpgText
             {
                 if (i != 0)
                 {
-                    std::cout << "   ";
+                    print("   ");
                 }
-                PrintLetter(c, j);
+                print_letter(c, j);
                 i++;
                 c = word[i];
             }
-            Log("");
+            new_line();
         }
     }
 
-    // Prints the Game title
-    void PrintTitle()
+    void print_data(const char *label, int n)
     {
-        PrintDash(15);
-        PrintWord("RPG");
-        PrintDash(15);
-        Log("");
+        print(label);
+        log(n);
     }
 
-    // Prints the Game Ending
-    void PrintEnd()
+    void print_title()
     {
-        Log("");
-        PrintDash(15);
-        PrintWord("Game Over");
-        PrintDash(15);
-        Log("");
-        std::cout << "Enter Any Number to Quit: ";
+        print_line();
+        print_word(GAME_NAME);
+        print_line();
+        new_line();
     }
 
-    // Prints the main menu
-    void PrintMenu(bool hasSaveGame)
+    void print_end()
     {
-        Log("");
-        PrintDash(15);
-        Log("MAIN MENU");
-        PrintDash(15);
-        Log("");
+        print_line();
+        print_word(END_TEXT);
+        print_line();
+        new_line();
+        print("Enter Any Number to Quit: ");
+    }
+
+    void print_menu(bool hasSaveGame)
+    {
+        new_line();
+        print_line();
+        log("MAIN MENU");
+        print_line();
+        new_line();
         if (hasSaveGame)
         {
-            Log("1. Continue");
-            Log("2. New Game");
-            Log("3. Options");
-            Log("4. Quit");
+            log("1-> Continue");
+            log("2-> New Game");
+            log("3-> Options");
+            log("4-> Quit");
         }
         else
         {
-            Log("1. New Game");
-            Log("2. Options");
-            Log("3. Quit");
+            log("1-> New Game");
+            log("2-> Options");
+            log("3-> Quit");
         }
-        Log("");
-        std::cout << "Enter any of these numbers: ";
+        new_line();
+        print_line();
+        print("Choose game mode by entering linked number: ");
     }
+
+    void print_options()
+    {
+        print_line();
+        print_word("OPTIONS");
+        print_line();
+        new_line();
+        log("1-> Print Stats");
+        log("2-> Back to Menu");
+        new_line();
+        print_line();
+        print("Choose the option by entering linked number: ");
+    }
+
+    void print_pause()
+    {
+        print_line();
+        print_word("PAUSE MENU");
+        print_line();
+        new_line();
+        log("1-> Print Stats");
+        log("2-> Back to Game");
+        new_line();
+        print_line();
+        print("Choose the option by entering linked number: ");
+    }
+
 } // namespace rpgText

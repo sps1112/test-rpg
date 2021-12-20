@@ -8,6 +8,7 @@ build/*
 !test-rpg/*/*.*
 !test-rpg/data/*
 test-rpg/data/*.saved.*
+test-rpg/data/*.backup.*
 # Remove .out files
 test-rpg/*/*.out
 # Remove .vscode folder

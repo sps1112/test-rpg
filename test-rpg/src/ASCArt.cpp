@@ -2,8 +2,7 @@
 
 namespace rpgText
 {
-    // Returns a Character string such as "------" with n dashes
-    char *GetDashes(int n)
+    char *get_dashes(int n)
     {
         char *line = new char[n + 1];
         for (int i = 0; i < n; i++)
@@ -14,9 +13,9 @@ namespace rpgText
         return line;
     }
 
-    //  String Array for Letters created with ASCII ART
-
     int wordLength = 5;
+
+    //  String Array for Letters created with ASCII ART
 
     std::string A[] = {"    *    ",
                        "   * *   ",
@@ -54,11 +53,11 @@ namespace rpgText
                        "*     ",
                        "*     "};
 
-    std::string G[] = {"***** ",
+    std::string G[] = {" **** ",
                        "*     ",
-                       "***** ",
+                       "*  ***",
                        "*    *",
-                       "***** "};
+                       " **** "};
 
     std::string H[] = {"*    *",
                        "*    *",
@@ -163,4 +162,5 @@ namespace rpgText
                        "  *  ",
                        " *   ",
                        "*****"};
+
 } // namespace rpgText

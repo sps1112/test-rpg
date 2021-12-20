@@ -2,8 +2,7 @@
 
 namespace rpgText
 {
-    // Calculates length of character array
-    int GetCharArrayLength(const char *charArray)
+    int get_char_arr_len(const char *charArray)
     {
         int index = 0;
         while ((char)charArray[index] != '\0')
@@ -13,7 +12,7 @@ namespace rpgText
         return (index + 1);
     }
 
-    int GetCharArrayLength(char *charArray)
+    int get_char_arr_len(char *charArray)
     {
         int index = 0;
         while ((char)charArray[index] != '\0')
@@ -23,41 +22,38 @@ namespace rpgText
         return (index + 1);
     }
 
-    // Converts character Array to string
-    std::string ConvertToString(const char *charArray)
+    std::string arr_to_string(const char *charArray)
     {
         std::string s = "";
-        for (int i = 0; i < GetCharArrayLength(charArray); i++)
+        for (int i = 0; i < get_char_arr_len(charArray); i++)
         {
             s = s + charArray[i];
         }
         return s;
     }
 
-    std::string ConvertToString(char *charArray)
+    std::string arr_to_string(char *charArray)
     {
         std::string s = "";
-        for (int i = 0; i < GetCharArrayLength(charArray); i++)
+        for (int i = 0; i < get_char_arr_len(charArray); i++)
         {
             s = s + charArray[i];
         }
         return s;
     }
 
-    // Converts chararcter array to float ("70" to 70.0)
-    float ConvertToFloat(const char *charArray)
+    float arr_to_float(const char *charArray)
     {
-        std::string s = ConvertToString(charArray);
+        std::string s = arr_to_string(charArray);
         std::stringstream ss(s);
         float value{0};
         ss >> value;
         return value;
     }
 
-    // Gets Single Line from a starting Index till '\n'
-    char *GetLine(const char *charList, int startIndex)
+    char *get_line(const char *charList, int startIndex)
     {
-        char *newLine = new char[GetCharArrayLength(charList)];
+        char *newLine = new char[get_char_arr_len(charList)];
         int index = startIndex;
         while ((char)charList[index] != '\n')
         {
@@ -68,9 +64,9 @@ namespace rpgText
         return newLine;
     }
 
-    char *GetLine(char *charList, int startIndex)
+    char *get_line(char *charList, int startIndex)
     {
-        char *newLine = new char[GetCharArrayLength(charList)];
+        char *newLine = new char[get_char_arr_len(charList)];
         int index = startIndex;
         int count = 0;
         while ((char)charList[index] != '\n' && (char)charList[index] != '\0')
@@ -82,8 +78,7 @@ namespace rpgText
         return newLine;
     }
 
-    // Gets ending index of a line from a starting Index
-    int GetLineEndIndex(const char *charList, int startIndex)
+    int get_index_end(const char *charList, int startIndex)
     {
         int index = startIndex;
         while ((char)charList[index] != '\n')
@@ -93,7 +88,7 @@ namespace rpgText
         return index;
     }
 
-    int GetLineEndIndex(char *charList, int startIndex)
+    int get_index_end(char *charList, int startIndex)
     {
         int index = startIndex;
         while ((char)charList[index] != '\n')
@@ -103,22 +98,20 @@ namespace rpgText
         return index;
     }
 
-    // Gets starting index of next line from a starting Index
-    int GetLineStartIndex(const char *charList, int startIndex)
+    int get_index_start(const char *charList, int startIndex)
     {
-        return (GetLineEndIndex(charList, startIndex) + 1);
+        return (get_index_end(charList, startIndex) + 1);
     }
 
-    int GetLineStartIndex(char *charList, int startIndex)
+    int get_index_start(char *charList, int startIndex)
     {
-        return (GetLineEndIndex(charList, startIndex) + 1);
+        return (get_index_end(charList, startIndex) + 1);
     }
 
-    // Get starting Index of a char array in another char array
-    int GetStartIndexString(char *mainCharArray, const char *targetCharArray)
+    int get_string_start(char *mainCharArray, const char *targetCharArray)
     {
-        int mainLength = GetCharArrayLength(mainCharArray);
-        int targetLength = GetCharArrayLength(targetCharArray);
+        int mainLength = get_char_arr_len(mainCharArray);
+        int targetLength = get_char_arr_len(targetCharArray);
         if (mainLength >= targetLength)
         {
             int index = 0;
@@ -160,22 +153,49 @@ namespace rpgText
             }
             return stringIndex;
         }
-        Log("INVALID TARGET STRING");
+        log("INVALID TARGET STRING");
         return -1;
     }
 
-    // Get ending Index of a char array in another char array
-    int GetEndIndexString(char *mainCharArray, const char *targetCharArray)
+    int get_string_end(char *mainCharArray, const char *targetCharArray)
     {
-        int mainLength = GetCharArrayLength(mainCharArray);
-        int targetLength = GetCharArrayLength(targetCharArray);
+        int mainLength = get_char_arr_len(mainCharArray);
+        int targetLength = get_char_arr_len(targetCharArray);
         if (mainLength >= targetLength)
         {
-            int index = GetStartIndexString(mainCharArray, targetCharArray);
+            int index = get_string_start(mainCharArray, targetCharArray);
             index += targetLength - 1;
             return index;
         }
-        Log("INVALID TARGET STRING");
+        log("INVALID TARGET STRING");
         return -1;
     }
+
+    std::string get_file_data(const char *path)
+    {
+        std::ifstream file;
+        file.open(path);
+        std::stringstream fStream;
+        fStream << file.rdbuf();
+        file.close();
+        return fStream.str();
+    }
+
+    int skip_lines(const char *dataFile, int n, int startIndex)
+    {
+        int index = startIndex;
+        for (int i = 0; i < n; i++)
+        {
+            index = get_index_start(dataFile, index);
+        }
+        return index;
+    }
+
+    char *get_data_point(const char *dataFile, const char *testChar, int index)
+    {
+        char *line = get_line(dataFile, index);
+        char *val = get_line(line, get_string_end(line, testChar));
+        return val;
+    }
+
 } // namespace rpgText

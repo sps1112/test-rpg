@@ -17,6 +17,7 @@ This contains list of other RPGs which influence this project and future project
 - Pokemon
 - Chrono Trigger
 - Undertale
+- Super Mario RPG
 
 ### _Raycasting RPG_
 
@@ -32,6 +33,7 @@ This contains list of other RPGs which influence this project and future project
 
 ### _3D RPG_
 
-- Knigts of the Old Republic
+- Knights of the Old Republic
 - Mass Effect
+- Runescape
 - Dark Souls

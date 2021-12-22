@@ -187,6 +187,10 @@ namespace rpgText
             {
                 state = STATE_PAUSE;
                 pause_game();
+                if (state == STATE_MENU)
+                {
+                    gameRunning = false;
+                }
             }
             else if (choice == 3)
             {
@@ -218,6 +222,7 @@ namespace rpgText
             {
             case 1:
             case 2:
+            case 3:
                 break;
             default:
                 choice = -1;
@@ -225,12 +230,22 @@ namespace rpgText
             }
         }
         new_line();
-        if (choice == 1)
+        switch (choice)
         {
+        case 1:
+            state = STATE_MAP;
+            break;
+        case 2:
             player.print_stats();
             choice = get_int_prompt("Enter any number to go back to map: ");
+            state = STATE_MAP;
+            break;
+        case 3:
+            state = STATE_MENU;
+            break;
+        default:
+            break;
         }
-        state = STATE_MAP;
     }
 
 } // namespace rpgText

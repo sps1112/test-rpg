@@ -222,8 +222,11 @@ namespace rpgText
         print_word("PAUSE MENU");
         print_line();
         new_line();
-        log("1-> Print Stats");
-        log("2-> Back to Game");
+        log("1-> Resume to Game");
+        log("2-> Print Stats");
+        log("3-> Quit to Menu");
+        /*log("1-> Print Stats");
+        log("2-> Back to Game");*/
         new_line();
         print_line();
         print("Choose the option by entering linked number: ");

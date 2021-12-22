@@ -10,5 +10,6 @@ This contains info about the Battle System
   - Attack
   - Use Magic
   - Use Item
+  - Wait
   - Flee
 - The character who flees or whose health reaches zero loses

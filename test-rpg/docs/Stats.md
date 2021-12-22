@@ -7,31 +7,33 @@ This contains stats which define features of a character.
 - Name
 - Level
 
-### _Stats Data_
+### _Base Stats_
+
+- Strength
+- Stamina
+- Intelligence
+- Agility
+- Luck
+
+### _Derived Stats_
 
 - Health
 - Mana
 - Attack
 - Defence
-- Special Attack
-- Special Defence
+- Mana Attack
+- Mana Defence
 - Speed
+- Accuracy
+- Evasion
+- Crit Chance
 
 ### _Other Data_
 
 - Current Exp.
 - Exp. to Next Level
 
-### _Enemy Stats_
+### _Enemy Data_
 
-- Name
-- Level
-- Health
-- Mana
-- Attack
-- Defence
-- Spc. Attack
-- Spc. Defence
-- Speed
 - Exp. Drop
 - Money Drop

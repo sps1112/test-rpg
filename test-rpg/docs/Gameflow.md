@@ -6,13 +6,12 @@ This contains info about the game flow.
 
 - Continue
 - New Game
-- Load Game
-- Settings
+- Options
 - Quit
 
 ### _Game_
 
-- Free Roam
+- Travel
 - Pause
 - Battle
 - Cutscene

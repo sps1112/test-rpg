@@ -27,4 +27,5 @@ add_executable(
     test-rpg/src/FileManager.cpp
     test-rpg/src/Character.cpp
     test-rpg/src/Battle.cpp
-    test-rpg/src/FileSystem.cpp)
+    test-rpg/src/FileSystem.cpp
+    test-rpg/src/Game.cpp)

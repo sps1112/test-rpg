@@ -13,4 +13,5 @@ This contains info about how the code is laid out
   - [X] Printer
 - [X] Character
   - [X] Battle
-- [X] Application
+- [ ] Game
+  - [X] Application
